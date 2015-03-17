@@ -3,7 +3,7 @@
 CargOS specific pkgsrc packages and overrides
 
 ### Hierarchy
-* *localpatches/ *  
+* *localpatches/*  
 Local patches that aren't part of pkgsrc.
 * *overrides/*  
 Overrides for pkgsrc (no CVS directories allowed!).  
