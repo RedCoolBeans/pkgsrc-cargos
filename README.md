@@ -17,7 +17,7 @@ PKGSRC_BRANCH=pkgsrc-2014Q4
 pkgin -y in cargos-build-essential
 mkdir -p /home/cargos && cd /home/cargos
 cvs -d anoncvs@anoncvs.NetBSD.org:/cvsroot -q co -r ${PKGSRC_BRANCH} -P pkgsrc
-cd pkgsrc && git clone ssh://gitolite3@cwdev.loginto.me:2222/pkgsrc-cargos.git cargos
+cd pkgsrc && git clone https://github.com/RedCoolBeans/pkgsrc-cargos.git cargos
 echo '.cvsignore' >/home/cargos/pkgsrc/.cvsignore
 echo 'cargos' >>/home/cargos/pkgsrc/.cvsignore
 /bin/bash ./scripts/overrides.sh
