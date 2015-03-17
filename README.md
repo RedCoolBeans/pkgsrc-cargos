@@ -31,7 +31,7 @@ This branches needs some update from HEAD (until pkgsrc-2015Q1 is tagged) due to
 * textproc/mdocml (support for a DB-less man(1))  
 
 ```sh
-for i in pkgtools/pkgin security/openssh textproc/mdocml; do \
+for i in pkgtools/pkgin security/netpgpverify security/openssh textproc/mdocml; do \
 	cd /home/cargos/pkgsrc/$i && cvs -up -PAd
 done
 ```
