@@ -1,0 +1,19 @@
+# $NetBSD$
+
+case ${STAGE} in
+POST-INSTALL)
+	# currently disabled since we build mdocml without sqlite support
+	# (RO /usr/share/man/mandoc.db)
+	#${LOCALBASE}/sbin/makewhatis || true
+
+	# prevent failure and hide stderr in case the cert dirs already exists
+	if [ -x ${LOCALBASE}/sbin/mozilla-rootcerts ]; then
+		PATH=${PATH}:${LOCALBASE}/sbin \
+			${LOCALBASE}/sbin/mozilla-rootcerts install >/dev/null 2>&1 || true
+	fi
+	
+	grep -Eq '^(file|ftp|http)://' ${PKG_SYSCONFDIR}/pkgin/repositories.conf || \
+		echo 'http://cargos.io/pub/pkgsrc/packages/CargOS/x86_64/2014Q4/All' \
+		>>${PKG_SYSCONFDIR}/pkgin/repositories.conf
+	;;
+esac

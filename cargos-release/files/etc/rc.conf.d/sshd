@@ -1,0 +1,4 @@
+# @PKGNAME@
+# @EGDIR@/etc/rc.conf.d/sshd
+
+sshd=${sshd:=YES}

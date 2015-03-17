@@ -1,0 +1,4 @@
+# @PKGNAME@
+# @EGDIR@/etc/acpi/PWRB/00000080
+
+/sbin/poweroff

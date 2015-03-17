@@ -1,0 +1,4 @@
+@comment $NetBSD$
+share/examples/cargos-build-essential/etc/ld.so.conf.d/pkgsrc.conf
+share/examples/cargos-build-essential/etc/profile.d/pkgsrc.sh
+share/examples/cargos-build-essential/usr/pkg/etc/mk.conf
