@@ -5,12 +5,13 @@ if [ "${PS1}" -a "${BASH}" ]; then
     PS1="[\u@\h \W]\\$ "
 fi
 
+EDITOR="vi"
 MANPAGER="less" # mdocml - man(1) hardcodes '/usr/bin/more -s'
 PAGER="more"
 if [ -z "${TERM}" -o "${TERM}" = "unknown" ]; then
     TERM=linux
 fi
-export MANPAGER PAGER TERM
+export EDITOR MANPAGER PAGER TERM
 
 umask 0022
 
