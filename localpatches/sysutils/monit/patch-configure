@@ -1,0 +1,15 @@
+--- configure.orig
++++ configure
+@@ -14050,9 +14050,9 @@
+ else
+ 
+         if test "x$use_pam" = "x" ; then
+-            use_pam=1
+-            { $as_echo "$as_me:${as_lineno-$LINENO}: result: enabled" >&5
+-$as_echo "enabled" >&6; }
++            use_pam=0
++            { $as_echo "$as_me:${as_lineno-$LINENO}: result: disabled" >&5
++$as_echo "disabled" >&6; }
+         fi
+ 
+ 
