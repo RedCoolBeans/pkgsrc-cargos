@@ -161,6 +161,7 @@ if [[ ${ERR} ]]; then
 	/bin/echo
 	/bin/echo "     The system maybe be in an unconsistent state, run:"
 	/bin/echo "     pkg_add -U cargos-release && pkg_admin rebuild-tree"
+	exit 1
 fi
 /bin/echo "------------------------------------------------------------------------"
 /bin/echo
