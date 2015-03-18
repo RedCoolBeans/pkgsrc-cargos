@@ -1,10 +1,11 @@
 # $NetBSD$
 
-DISTNAME=		cargos-release-2015.6
+VERSION=		2015.6
+DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		1
+PKGREVISION=		3
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
@@ -36,6 +37,7 @@ F600S +=		/etc/cron/crontabs/root
 
 F644S +=		/etc/ld.so.conf
 F644S +=		/etc/ntp.conf
+F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh
 F644S +=		/etc/rc.conf.d/docker
@@ -74,6 +76,7 @@ do-build:
 		-e "s,@PKGNAME@,${PKGNAME},g" \
 		-e "s,@PKG_SYSCONFDIR@,${PKG_SYSCONFDIR},g" \
 		-e "s,@PREFIX@,${PREFIX},g" \
+		-e "s,@VERSION@,${VERSION},g" \
 		 ${FILESDIR}/${f} >${WRKDIR}${f}
 .endfor
 

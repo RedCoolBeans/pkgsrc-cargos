@@ -3,6 +3,7 @@ share/examples/cargos-release/etc/acpi/PWRB/00000080
 share/examples/cargos-release/etc/cron/crontabs/root
 share/examples/cargos-release/etc/ld.so.conf
 share/examples/cargos-release/etc/ntp.conf
+share/examples/cargos-release/etc/os-release
 share/examples/cargos-release/etc/profile
 share/examples/cargos-release/etc/profile.d/pkg.sh
 share/examples/cargos-release/etc/rc.conf.d/docker
