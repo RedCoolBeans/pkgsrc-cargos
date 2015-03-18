@@ -11,9 +11,4 @@ POST-INSTALL)
 		PATH=${PATH}:${LOCALBASE}/sbin \
 			${LOCALBASE}/sbin/mozilla-rootcerts install >/dev/null 2>&1 || true
 	fi
-	
-	grep -Eq '^(file|ftp|http)://' ${PKG_SYSCONFDIR}/pkgin/repositories.conf || \
-		echo 'http://cargos.io/pub/pkgsrc/packages/CargOS/x86_64/2014Q4/All' \
-		>>${PKG_SYSCONFDIR}/pkgin/repositories.conf
-	;;
 esac

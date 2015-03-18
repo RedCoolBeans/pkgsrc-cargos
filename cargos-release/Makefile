@@ -4,6 +4,7 @@ DISTNAME=		cargos-release-2015.6
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
@@ -68,6 +69,7 @@ do-build:
 .endfor
 .for f in ${F600S} ${F644S} ${F755S}
 	${SED} -e "s,@LOCALBASE@,${LOCALBASE},g" \
+		-e "s,@MACHINE@,$$(uname -m),g" \
 		-e "s,@EGDIR@,${EGDIR},g" \
 		-e "s,@PKGNAME@,${PKGNAME},g" \
 		-e "s,@PKG_SYSCONFDIR@,${PKG_SYSCONFDIR},g" \
