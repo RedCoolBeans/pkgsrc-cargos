@@ -107,7 +107,7 @@ www/varnish
 "
 ########################################################################
 
-pkg_add -u cargos-build-essential || exit 1
+pkg_add -u cargos-build-essential-* # don't match the "cargos-build-essential-" directory
 PACKAGES=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PACKAGES) || exit 1
 PKGSRCDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PKGSRCDIR) || exit 1
 WRKOBJDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V WRKOBJDIR) || exit 1
