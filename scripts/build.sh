@@ -17,8 +17,6 @@
 # build.sh: build CargOS packages set
 
 # XXX candidates?
-# net/nsd
-# net/unbound
 # sysutils/libvirt
 # sysutils/virtinst
 
@@ -99,6 +97,8 @@ meta-pkgs/php54-extensions
 net/bind99
 net/isc-dhcpd4
 net/jwhois
+net/nsd
+net/unbound
 security/clamav
 sysutils/monit
 www/apache22
