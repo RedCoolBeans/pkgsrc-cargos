@@ -16,9 +16,6 @@
 #
 # build.sh: build CargOS packages set
 
-# XXX candidates?
-# sysutils/virtinst
-
 eval $(/bin/grep ^VERIFIED_INSTALLATION /usr/pkg/etc/pkg_install.conf | \
 	/usr/bin/tr -d '[[:space:]]')
 if [[ ${VERIFIED_INSTALLATION} != "never" ]]; then
