@@ -4,6 +4,7 @@ DISTNAME=		cargos-build-essential-2015.6
 CATEGORIES=		devel
 MASTER_SITES=		# empty
 DISTFILES=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
