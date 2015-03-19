@@ -17,7 +17,7 @@
 # overrides.sh: mount/unmount overrides over PKGSRCDIR
 
 PKGSRCDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PKGSRCDIR) || exit 1
-[[ ${PKGSRCDIR} ]] || exit 1
+[[ -d ${PKGSRCDIR} ]] || exit 1
 
 OVERRIDES=${PKGSRCDIR}/cargos/overrides
 cd ${OVERRIDES} || exit 1

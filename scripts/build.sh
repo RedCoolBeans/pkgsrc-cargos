@@ -108,7 +108,7 @@ pkg_add -u cargos-build-essential-* # don't match the "cargos-build-essential-" 
 PACKAGES=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PACKAGES) || exit 1
 PKGSRCDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PKGSRCDIR) || exit 1
 WRKOBJDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V WRKOBJDIR) || exit 1
-[[ ${PACKAGES} && ${PKGSRCDIR} && ${WRKOBJDIR} ]] || exit 1
+[[ ${PACKAGES} && -d ${PKGSRCDIR} && ${WRKOBJDIR} ]] || exit 1
 
 # preserved packages
 pkg_delete -Nff cargos-release pkg_install || exit 1
