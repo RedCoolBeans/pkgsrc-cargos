@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		5
+PKGREVISION=		6
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
@@ -61,6 +61,7 @@ CONF_FILES_PERMS +=	${EGDIR}${f} ${f} ${ROOT_USER} ${ROOT_GROUP} 0755
 .endfor
 
 INSTALLATION_DIRS +=	${EG}/etc/cron/crontabs
+MAKE_DIRS +=		${PREFIX}/var/run
 MAKE_DIRS_PERMS +=	/etc/cron/crontabs ${ROOT_USER} ${ROOT_GROUP} 0750
 CONF_FILES_PERMS +=	${EGDIR}/etc/acpi/PWRB/00000080 /etc/acpi/PWRF/00000080 \
 				${ROOT_USER} ${ROOT_GROUP} 0755
