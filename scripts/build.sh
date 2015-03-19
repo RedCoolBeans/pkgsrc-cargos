@@ -17,7 +17,6 @@
 # build.sh: build CargOS packages set
 
 # XXX candidates?
-# sysutils/libvirt
 # sysutils/virtinst
 
 eval $(/bin/grep ^VERIFIED_INSTALLATION /usr/pkg/etc/pkg_install.conf | \
@@ -100,6 +99,7 @@ net/jwhois
 net/nsd
 net/unbound
 security/clamav
+sysutils/libvirt
 sysutils/monit
 www/apache22
 www/nginx
