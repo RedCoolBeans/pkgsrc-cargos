@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		6
+PKGREVISION=		7
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
@@ -60,8 +60,7 @@ CONF_FILES +=		${EGDIR}${f} ${f}
 CONF_FILES_PERMS +=	${EGDIR}${f} ${f} ${ROOT_USER} ${ROOT_GROUP} 0755
 .endfor
 
-INSTALLATION_DIRS +=	${EG}/etc/cron/crontabs
-MAKE_DIRS +=		${PREFIX}/var/run
+INSTALLATION_DIRS +=	${EG}/etc/cron/crontabs ${VARBASE}
 MAKE_DIRS_PERMS +=	/etc/cron/crontabs ${ROOT_USER} ${ROOT_GROUP} 0750
 CONF_FILES_PERMS +=	${EGDIR}/etc/acpi/PWRB/00000080 /etc/acpi/PWRF/00000080 \
 				${ROOT_USER} ${ROOT_GROUP} 0755
@@ -85,5 +84,7 @@ do-install:
 .for f in ${F600S} ${F644S} ${F755S}
 	${INSTALL_DATA} ${WRKDIR}${f} ${DESTDIR}${EGDIR}${f}
 .endfor
+	ln -sf /tmp ${DESTDIR}${VARBASE}/run
+	ln -sf /tmp ${DESTDIR}${VARBASE}/tmp
 
 .include "../../mk/bsd.pkg.mk"
