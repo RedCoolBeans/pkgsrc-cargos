@@ -1,7 +1,9 @@
 # @PKGNAME@
 # @EGDIR@/etc/cron/crontabs/root
 
-#MAILTO=/dev/null
+# outputs are sent to this email address (default: no mail is sent)
+#MAILTO=
+
 0 3 * * * sleep $((RANDOM \% 300)) && @LOCALBASE@/sbin/pkg_admin fetch-pkg-vulnerabilities >/dev/null 2>&1
 15 3 * * * @LOCALBASE@/sbin/pkg_admin audit
 # currently disabled since we build mdocml without sqlite support
