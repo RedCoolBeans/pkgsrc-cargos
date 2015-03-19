@@ -13,11 +13,6 @@ rcvar=$name
 command="@PREFIX@/bin/$name"
 command_args="-G docker --selinux-enabled"
 start_cmd=docker_start
-start_precmd=docker_prestart
-
-docker_prestart() {
-	modprobe br_netfilter
-}
 
 docker_start()
 {
