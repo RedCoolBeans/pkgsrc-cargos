@@ -1,10 +1,9 @@
 # $NetBSD$
 
-DISTNAME=		cargos-build-essential-2015.6
+DISTNAME=		cargos-build-essential-2015.7
 CATEGORIES=		devel
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		1
 
 MAINTAINER=		antoine@redcoolbeans.com
 HOMEPAGE=		http://cargos.io/
