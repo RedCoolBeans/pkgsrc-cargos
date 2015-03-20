@@ -20,6 +20,8 @@ echo '.cvsignore' >/home/cargos/pkgsrc/.cvsignore
 echo 'cargos' >>/home/cargos/pkgsrc/.cvsignore
 ```
 
+The overrides must replace matching specs in pkgsrc.
+
 ##### pkgsrc-2014Q4
 This branches needs some update from HEAD (until pkgsrc-2015Q1 is tagged) due to the following:
 * pkgtools/pkgin (needs support for upgrading PRESERVE packages)  
