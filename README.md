@@ -7,8 +7,6 @@ CargOS specific pkgsrc packages and overrides
 Local patches that aren't part of pkgsrc.
 * *overrides/*  
 Overrides for pkgsrc (no CVS directories allowed!).  
-* *scripts/*  
-CargOS release engineering scripts.
 
 ### Building packages
 Become root then:
@@ -20,7 +18,6 @@ cvs -d anoncvs@anoncvs.NetBSD.org:/cvsroot -q co -r ${PKGSRC_BRANCH} -P pkgsrc
 cd pkgsrc && git clone https://github.com/RedCoolBeans/pkgsrc-cargos.git cargos
 echo '.cvsignore' >/home/cargos/pkgsrc/.cvsignore
 echo 'cargos' >>/home/cargos/pkgsrc/.cvsignore
-/bin/bash ./scripts/overrides.sh
 ```
 
 ##### pkgsrc-2014Q4
