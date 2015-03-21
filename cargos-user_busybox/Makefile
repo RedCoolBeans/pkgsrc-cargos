@@ -6,7 +6,7 @@ MASTER_SITES=		# empty
 DISTFILES=		# empty
 PKGREVISION=		1
 
-MAINTAINER=		antoine@redcoolbeans.com
+MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
 COMMENT=		Limited NetBSD-compatible useradd/groupadd commands
 LICENSE=		isc

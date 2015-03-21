@@ -6,7 +6,7 @@ CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
 
-MAINTAINER=		antoine@redcoolbeans.com
+MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
 COMMENT=		CargOS base system
 LICENSE=		isc

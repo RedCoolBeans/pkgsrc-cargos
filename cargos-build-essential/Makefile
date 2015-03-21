@@ -5,7 +5,7 @@ CATEGORIES=		devel
 MASTER_SITES=		# empty
 DISTFILES=		# empty
 
-MAINTAINER=		antoine@redcoolbeans.com
+MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
 COMMENT=		CargOS build environment
 LICENSE=		isc

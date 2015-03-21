@@ -10,7 +10,7 @@ MASTER_SITES=		https://get.docker.com/builds/Linux/x86_64/
 EXTRACT_SUFX=		# empty
 PKGREVISION=		2
 
-MAINTAINER=		antoine@redcoolbeans.com
+MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://www.docker.com/
 COMMENT=		Pack, ship and run any application as a lightweight container
 LICENSE=		apache-2.0
