@@ -15,6 +15,6 @@ MANPATH=${MANPATH}:@LOCALBASE@/lib/perl5/vendor_perl/man	# perl
 MANPATH=${MANPATH}:@LOCALBASE@/lib/perl5/man		# perl
 
 # PKG_REPOS (see pkgin(1))
-PKG_REPOS=http://cargos.io/@MACHINE@/packages
+PKG_REPOS=http://cargos.io/@MACHINE@/packages/All
 
 export MANPATH PATH PKG_REPOS
