@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		1
+PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -16,7 +16,6 @@ NO_CONFIGURE=		yes
 PKG_PRESERVE=		yes
 
 DEPENDS +=		docker.io-[0-9]*:../../cargos/docker.io
-DEPENDS +=		grub2-[0-9]*:../../sysutils/grub2
 DEPENDS +=		mdocml>=1.13.2.20150308:../../textproc/mdocml
 DEPENDS +=		openssh-[0-9]*:../../security/openssh
 DEPENDS +=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
