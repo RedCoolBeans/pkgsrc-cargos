@@ -19,9 +19,9 @@ INSTALLATION_DIRS=	bin
 NO_BUILD=		yes
 PKG_GROUPS=		docker
 RCD_SCRIPTS=		docker
-WRKSRC=			${WRKDIR}/docker-1.5.0
+WRKSRC=			${WRKDIR}/docker-${V}
 
-DEPENDS=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
+DEPENDS+=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 
 do-install:
 	${INSTALL_PROGRAM} ${WRKDIR}/${DISTNAME} \
