@@ -4,6 +4,7 @@ DISTNAME=		cargos-build-essential-2015.7
 CATEGORIES=		devel
 MASTER_SITES=		# empty
 DISTFILES=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -35,9 +36,7 @@ EGDIR=			${PREFIX}/${EG}
 INSTALLATION_DIRS +=	${EG}/etc/ld.so.conf.d ${EG}/etc/profile.d
 INSTALLATION_DIRS +=	${EG}${PKG_SYSCONFDIR}
 
-CONF_FILES +=		${EGDIR}${PKG_SYSCONFDIR}/mk.conf ${PKG_SYSCONFDIR}/mk.conf
 CONF_FILES +=		${EGDIR}/etc/ld.so.conf.d/pkgsrc.conf /etc/ld.so.conf.d/pkgsrc.conf
-CONF_FILES +=		${EGDIR}/etc/profile.d/pkgsrc.sh /etc/profile.d/pkgsrc.sh
 
 do-build:
 	${SED} -e "s,@LOCALBASE@,${LOCALBASE},g" \
@@ -45,18 +44,9 @@ do-build:
 		-e "s,@PKGNAME@,${PKGNAME},g" \
 		${FILESDIR}/etc/ld.so.conf.d/pkgsrc.conf \
 		>${WRKDIR}/pkgsrc.conf
-	${SED} -e "s,@PREFIX@,${PREFIX},g" \
-		-e "s,@EGDIR@,${EGDIR},g" \
-		-e "s,@PKGNAME@,${PKGNAME},g" \
-		${FILESDIR}/usr/pkg/etc/mk.conf \
-		>${WRKDIR}/mk.conf
 
 do-install:
-	${INSTALL_DATA} ${WRKDIR}/mk.conf \
-		${DESTDIR}${EGDIR}${PKG_SYSCONFDIR}/mk.conf
 	${INSTALL_DATA} ${WRKDIR}/pkgsrc.conf \
 		${DESTDIR}${EGDIR}/etc/ld.so.conf.d/pkgsrc.conf
-	${INSTALL_DATA} ${FILESDIR}/etc/profile.d/pkgsrc.sh \
-		${DESTDIR}${EGDIR}/etc/profile.d/pkgsrc.sh
 
 .include "../../mk/bsd.pkg.mk"

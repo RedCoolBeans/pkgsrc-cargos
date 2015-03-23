@@ -6,9 +6,11 @@ share/examples/cargos-release/etc/ntp.conf
 share/examples/cargos-release/etc/os-release
 share/examples/cargos-release/etc/profile
 share/examples/cargos-release/etc/profile.d/pkg.sh
+share/examples/cargos-release/etc/profile.d/pkgsrc.sh
 share/examples/cargos-release/etc/rc.conf.d/docker
 share/examples/cargos-release/etc/rc.conf.d/sshd
 share/examples/cargos-release/usr/pkg/etc/gnupg/pkgsrc.gpg
+share/examples/cargos-release/usr/pkg/etc/mk.conf
 share/examples/cargos-release/usr/pkg/etc/pkg_install.conf
 var/run
 var/tmp

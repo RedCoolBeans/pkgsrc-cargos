@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		3
+PKGREVISION=		4
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -39,10 +39,12 @@ F644S +=		/etc/ntp.conf
 F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh
+F644S +=		/etc/profile.d/pkgsrc.sh
 F644S +=		/etc/rc.conf.d/docker
 F644S +=		/etc/rc.conf.d/sshd
 
 F644S +=		/usr/pkg/etc/gnupg/pkgsrc.gpg
+F644S +=		/usr/pkg/etc/mk.conf
 F644S +=		/usr/pkg/etc/pkg_install.conf
 
 F755S +=		/etc/acpi/PWRB/00000080
