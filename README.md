@@ -29,6 +29,7 @@ This branches needs some update from HEAD (until pkgsrc-2015Q1 is tagged) due to
 * pkgtools/pkgin (needs support for upgrading PRESERVE packages)  
 * security/netpgpverify (needed by patched pkg_install from Joyent)
 * security/openssh (fixed rc.d script)  
+* sysutils/file (CVE-2014-9620)
 * textproc/mdocml (support for a DB-less man(1))  
 
 ```sh
