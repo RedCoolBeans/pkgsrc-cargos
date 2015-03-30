@@ -1,0 +1,17 @@
+@comment $NetBSD$
+${PYSITELIB}/${EGG_INFODIR}/PKG-INFO
+${PYSITELIB}/${EGG_INFODIR}/SOURCES.txt
+${PYSITELIB}/${EGG_INFODIR}/dependency_links.txt
+${PYSITELIB}/${EGG_INFODIR}/top_level.txt
+${PYSITELIB}/dockerpty/__init__.py
+${PYSITELIB}/dockerpty/__init__.pyc
+${PYSITELIB}/dockerpty/__init__.pyo
+${PYSITELIB}/dockerpty/io.py
+${PYSITELIB}/dockerpty/io.pyc
+${PYSITELIB}/dockerpty/io.pyo
+${PYSITELIB}/dockerpty/pty.py
+${PYSITELIB}/dockerpty/pty.pyc
+${PYSITELIB}/dockerpty/pty.pyo
+${PYSITELIB}/dockerpty/tty.py
+${PYSITELIB}/dockerpty/tty.pyc
+${PYSITELIB}/dockerpty/tty.pyo
