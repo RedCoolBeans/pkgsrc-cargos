@@ -25,7 +25,7 @@ cd /home/cargos/pkgsrc/net/jwhois && bmake package-install
 ```
 
 ##### pkgsrc-2014Q4
-This branches needs some update from HEAD (until pkgsrc-2015Q1 is tagged) due to the following:
+This branches needs some update from pkgsrc-2015Q1 due to the following:
 * pkgtools/pkgin (needs support for upgrading PRESERVE packages)  
 * security/netpgpverify (needed by patched pkg_install from Joyent)
 * security/openssh (fixed rc.d script)  
@@ -34,7 +34,7 @@ This branches needs some update from HEAD (until pkgsrc-2015Q1 is tagged) due to
 
 ```sh
 for i in pkgtools/pkgin security/netpgpverify security/openssh textproc/mdocml; do \
-	cd /home/cargos/pkgsrc/$i && cvs -up -PAd
+	cd /home/cargos/pkgsrc/$i && cvs -q up -rpkgsrc-2015Q1 -PAd
 done
 ```
 
