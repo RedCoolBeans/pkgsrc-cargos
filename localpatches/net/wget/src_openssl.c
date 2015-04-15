@@ -1,3 +1,5 @@
+Fix build with LibreSSL
+
 --- src/openssl.c.orig
 +++ src/openssl.c
 @@ -91,9 +91,11 @@
