@@ -28,12 +28,11 @@ cd /home/cargos/pkgsrc/net/jwhois && bmake package-install
 This branches needs some update from pkgsrc-2015Q1 due to the following:
 * pkgtools/pkgin (needs support for upgrading PRESERVE packages)  
 * security/netpgpverify (needed by patched pkg_install from Joyent)
-* security/openssh (fixed rc.d script)  
 * sysutils/file (CVE-2014-9620)
 * textproc/mdocml (support for a DB-less man(1))  
 
 ```sh
-for i in pkgtools/pkgin security/netpgpverify security/openssh textproc/mdocml; do \
+for i in pkgtools/pkgin security/netpgpverify sysutils/file textproc/mdocml; do \
 	cd /home/cargos/pkgsrc/$i && cvs -q up -rpkgsrc-2015Q1 -PAd
 done
 ```
