@@ -1,5 +1,5 @@
 $NetBSD$
 
-SHA1 (docker-py-0.7.2.tar.gz) = c526e95ea974b2a40392dbe00d0ecbfffa6c5d4b
-RMD160 (docker-py-0.7.2.tar.gz) = f1b2c6e77b80e20c76bcccf0433b95f981631a4c
-Size (docker-py-0.7.2.tar.gz) = 38930 bytes
+SHA1 (docker-py-1.1.0.tar.gz) = 989eaf213f38c694798a326f21a66d982edee16c
+RMD160 (docker-py-1.1.0.tar.gz) = 78224d3f2eb4f8d20c50f15c12f1958b15366dc1
+Size (docker-py-1.1.0.tar.gz) = 42192 bytes

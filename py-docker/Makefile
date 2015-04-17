@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=		docker-py-0.7.2
+DISTNAME=		docker-py-1.1.0
 PKGNAME=		${PYPKGPREFIX}-${DISTNAME:S/-py//}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://pypi.python.org/packages/source/d/docker-py/

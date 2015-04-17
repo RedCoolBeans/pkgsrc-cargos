@@ -1,8 +1,7 @@
 # $NetBSD: Makefile,v 1.10 2014/12/12 20:01:29 imil Exp $
 
-DISTNAME=	requests-2.4.3
+DISTNAME=	requests-2.5.3
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
-PKGREVISION=	2
 CATEGORIES=	devel www
 MASTER_SITES=	https://pypi.python.org/packages/source/r/requests/
 
