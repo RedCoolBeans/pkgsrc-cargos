@@ -39,6 +39,9 @@ ${PYSITELIB}/compose/cli/utils.pyo
 ${PYSITELIB}/compose/cli/verbose_proxy.py
 ${PYSITELIB}/compose/cli/verbose_proxy.pyc
 ${PYSITELIB}/compose/cli/verbose_proxy.pyo
+${PYSITELIB}/compose/config.py
+${PYSITELIB}/compose/config.pyc
+${PYSITELIB}/compose/config.pyo
 ${PYSITELIB}/compose/container.py
 ${PYSITELIB}/compose/container.pyc
 ${PYSITELIB}/compose/container.pyo

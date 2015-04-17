@@ -1,9 +1,8 @@
 # $NetBSD$
 
-DISTNAME=		docker-compose-1.1.0
+DISTNAME=		docker-compose-1.2.0
 CATEGORIES=		sysutils
 MASTER_SITES=		https://pypi.python.org/packages/source/d/docker-compose/
-PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://docs.docker.com/compose/
