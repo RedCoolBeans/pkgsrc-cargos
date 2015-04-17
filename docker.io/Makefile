@@ -2,13 +2,12 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.5.0
+V=			1.6.0
 DISTNAME=		docker-${V}
 PKGNAME=		docker.io-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://get.docker.com/builds/Linux/x86_64/
 EXTRACT_SUFX=		# empty
-PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://www.docker.com/
