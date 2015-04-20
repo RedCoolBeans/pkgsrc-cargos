@@ -1,23 +1,36 @@
 # $NetBSD$
 
-DISTNAME=		docker-compose-1.2.0
+ONLY_FOR_PLATFORM=	Linux-*-x86_64
+
+V=			1.2.0
+DISTNAME=		docker-compose-Linux-x86_64
+PKGNAME=		docker-compose-${V}
 CATEGORIES=		sysutils
-MASTER_SITES=		https://pypi.python.org/packages/source/d/docker-compose/
+MASTER_SITES=		https://github.com/docker/compose/releases/download/${V}/
+EXTRACT_SUFX=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://docs.docker.com/compose/
 COMMENT=		Define and run complex applications using Docker
 LICENSE=		apache-2.0
 
-DEPENDS+=		docker.io-[0-9]*:../../cargos/docker.io
-DEPENDS+=		${PYPKGPREFIX}-docker-[0-9]*:../../cargos/py-docker
-DEPENDS+=		${PYPKGPREFIX}-dockerpty-[0-9]*:../../cargos/py-dockerpty
-DEPENDS+=		${PYPKGPREFIX}-docopt-[0-9]*:../../devel/py-docopt
-DEPENDS+=		${PYPKGPREFIX}-requests-[0-9]*:../../devel/py-requests
-DEPENDS+=		${PYPKGPREFIX}-six-[0-9]*:../../lang/py-six
-DEPENDS+=		${PYPKGPREFIX}-texttable-[0-9]*:../../cargos/py-texttable
-DEPENDS+=		${PYPKGPREFIX}-websocket-client-[0-9]*:../../cargos/py-websocket-client
-DEPENDS+=		${PYPKGPREFIX}-yaml-[0-9]*:../../textproc/py-yaml
+INSTALLATION_DIRS=	bin libexec
+#NO_BUILD=		yes
+WRKSRC=			${WRKDIR}/docker-compose-${V}
 
-.include "../../lang/python/egg.mk"
+DEPENDS+=		docker.io-[0-9]*:../../cargos/docker.io
+
+do-build:
+	${MKDIR} ${WRKSRC}
+	${SED} -e "s,@PREFIX@,${PREFIX},g" \
+		${FILESDIR}/docker-compose.in >${WRKDIR}/docker-compose
+
+do-install:
+	${CP} ${WRKDIR}/${DISTNAME} \
+		${DESTDIR}${PREFIX}/libexec/docker-compose
+	${CHMOD} +x ${DESTDIR}${PREFIX}/libexec/docker-compose
+	${INSTALL_SCRIPT} ${WRKDIR}/docker-compose \
+		${DESTDIR}${PREFIX}/bin/docker-compose
+
 .include "../../mk/bsd.pkg.mk"
