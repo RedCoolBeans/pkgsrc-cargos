@@ -1,5 +1,0 @@
-@comment $NetBSD$
-${PYSITELIB}/${EGG_FILE}
-${PYSITELIB}/texttable.py
-${PYSITELIB}/texttable.pyc
-${PYSITELIB}/texttable.pyo
