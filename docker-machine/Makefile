@@ -11,7 +11,7 @@ EXTRACT_SUFX=		# empty
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		https://docs.docker.com/machine/
-COMMENT=		create, use and manage Docker hosts
+COMMENT=		Create, use and manage Docker hosts
 LICENSE=		apache-2.0
 
 INSTALLATION_DIRS=	bin
