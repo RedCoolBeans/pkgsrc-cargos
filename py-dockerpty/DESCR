@@ -1,2 +1,0 @@
-Docker PTY provides the functionality needed to operate the pseudo-tty (PTY)
-allocated to a docker container, using the Python client.
