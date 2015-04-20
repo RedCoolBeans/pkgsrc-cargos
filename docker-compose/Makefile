@@ -8,7 +8,7 @@ PKGNAME=		docker-compose-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://github.com/docker/compose/releases/download/${V}/
 EXTRACT_SUFX=		# empty
-PKGREVISION=		1
+PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://docs.docker.com/compose/

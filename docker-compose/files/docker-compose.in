@@ -1,4 +1,5 @@
 #!/bin/sh
 #
+# https://github.com/docker/compose/issues/170
 
 LD_PRELOAD=/usr/lib/libreadline.so @PREFIX@/libexec/docker-compose "$@"
