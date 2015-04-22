@@ -40,7 +40,7 @@ eval "busybox adduser -D ${args} -s ${shell:=/bin/false} ${user}"
 ret=$?
 
 # remove setgid on homedir and set owner to root:root for system users
-if [ "${sysusr}" -a "${homedir}" ]; then
+if [ "${sysusr}" -a -d "${homedir}" ]; then
 	/bin/chmod -s ${homedir}
 	/bin/chown 0:0 ${homedir}
 fi

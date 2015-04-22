@@ -4,7 +4,7 @@ PKGNAME=		cargos-user-busybox-20150305
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		1
+PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
