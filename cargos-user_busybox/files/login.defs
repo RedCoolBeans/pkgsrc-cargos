@@ -1,5 +1,0 @@
-# cargos-user_-busybox - /etc/login.defs
-#
-
-# placeholder: busybox does not use shadow-utils;
-# pkgsrc/mk/pkginstall/usergroupfuncs.Linux grep(1) for this file

@@ -1,7 +1,0 @@
---- configure.local.orig
-+++ configure.local
-@@ -8,3 +8,4 @@
- INSTALL_MAN="/usr/bin/install -c -o root -g root -m 644"
- INSTALL_DATA="/usr/bin/install -c -o root -g root -m 644"
- MANM_ROFF=mandoc-roff
-+DBLIB=

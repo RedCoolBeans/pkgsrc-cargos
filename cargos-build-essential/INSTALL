@@ -1,7 +1,0 @@
-# $NetBSD$
-
-case ${STAGE} in
-POST-INSTALL)
-	ldconfig 2>/dev/null
-	;;
-esac

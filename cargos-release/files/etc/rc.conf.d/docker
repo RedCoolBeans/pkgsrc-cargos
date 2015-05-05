@@ -1,4 +1,0 @@
-# @PKGNAME@
-# @EGDIR@/etc/rc.conf.d/docker
-
-docker=${docker:=YES}
