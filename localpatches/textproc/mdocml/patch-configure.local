@@ -1,3 +1,5 @@
+Disable SQLite.
+
 --- configure.local.orig
 +++ configure.local
 @@ -8,3 +8,4 @@

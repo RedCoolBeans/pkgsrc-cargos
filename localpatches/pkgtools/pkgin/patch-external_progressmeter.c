@@ -1,3 +1,5 @@
+-D_FORTIFY_SOURCE=2
+
 --- external/progressmeter.c.orig
 +++ external/progressmeter.c
 @@ -236,7 +236,10 @@

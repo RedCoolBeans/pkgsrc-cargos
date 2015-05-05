@@ -1,3 +1,6 @@
+Disable SQLite while allowing the package to build without the need to patch the
+pkgsrc framework (PLIST).
+
 --- Makefile.orig
 +++ Makefile
 @@ -329,6 +329,30 @@

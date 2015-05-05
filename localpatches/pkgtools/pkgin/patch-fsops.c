@@ -1,3 +1,5 @@
+-D_FORTIFY_SOURCE=2
+
 --- fsops.c.orig
 +++ fsops.c
 @@ -125,7 +125,10 @@
