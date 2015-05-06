@@ -1,0 +1,3 @@
+from Joyent branch joyent/release/2015Q1:
+Implement pkg_install+netpgpverify inline signing.
+https://github.com/joyent/pkgsrc/commit/b32220eb0b3e649d79524700ee6f7149e8b780ef.patch
