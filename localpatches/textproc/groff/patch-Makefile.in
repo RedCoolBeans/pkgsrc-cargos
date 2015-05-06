@@ -1,0 +1,18 @@
+XXX fixed in HEAD: PLIST contains entries for the groff-docs PKG_OPTIONS
+
+--- Makefile.in.orig2
++++ Makefile.in
+@@ -989,6 +989,13 @@
+ 	cd $(DESTDIR)$(dataprogramdir); \
+ 	  rm -f current; \
+ 	  $(LN_S) $(version)$(revision) current
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/examples/mom/letter.pdf
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/examples/mom/mom-pdf.mom
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/examples/mom/mom-pdf.pdf
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/examples/mom/sample_docs.pdf
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/examples/mom/typesetting.pdf
++	$(mkinstalldirs) $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/pdf
++	touch $(DESTDIR)$(prefix)/share/doc/$(PACKAGE_TARNAME)/pdf/mom-pdf.pdf
+ 
+ .PHONY: uninstall
+ uninstall: uninstall_sub uninstall_dirs
