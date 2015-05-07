@@ -39,6 +39,12 @@ fi
 eval "busybox adduser -D ${args} -s ${shell:=/bin/false} ${user}"
 ret=$?
 
+# XXX pkgsrc does not use the "system user" flag and busybox will create HOME
+# with bogus permissions preventing the following daemons from running properly:
+if [ "${user}" = "sshd" ]; then
+	sysusr=yes
+fi
+
 # remove setgid on homedir and set owner to root:root for system users
 if [ "${sysusr}" -a -d "${homedir}" ]; then
 	/bin/chmod -s ${homedir}
