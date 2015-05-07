@@ -1,0 +1,4 @@
+@comment $NetBSD$
+libexec/virt-what-cpuid-helper
+man/man1/virt-what.1
+sbin/virt-what
