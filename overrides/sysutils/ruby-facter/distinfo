@@ -3,3 +3,4 @@ $NetBSD: distinfo,v 1.22 2015/02/13 13:55:58 taca Exp $
 SHA1 (facter-2.4.3.gem) = f058d375aa8f520375902b7ae2374b0d218ee9b8
 RMD160 (facter-2.4.3.gem) = e127e3fa8fc48b1b6b7062d0f3a319a7eda4ad9f
 Size (facter-2.4.3.gem) = 245760 bytes
+SHA1 (patch-lib_facter_operatingsystem_linux.rb) = 3a6ca875cfb2742806c41ba291bea3e1dad0cb6f
