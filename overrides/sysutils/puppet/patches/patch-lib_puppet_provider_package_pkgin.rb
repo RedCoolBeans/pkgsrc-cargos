@@ -1,8 +1,7 @@
 $NetBSD$
 
 - Make 'pkgin' the default provider for CargOS
-- 'pkgin list' format changed (package-version;descr)
-- Always pass '-p' to 'pkgin list' so we know we'll always the expected format
+- https://github.com/puppetlabs/puppet/pull/3905
 - Upstream backport:
 From 9cd470a0df890d5f7f097fd9f3aa3ecd82390066 Mon Sep 17 00:00:00 2001
 From: Kylo Ginsberg <kylo@puppetlabs.com>
