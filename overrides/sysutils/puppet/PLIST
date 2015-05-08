@@ -782,6 +782,7 @@ ${GEM_LIBDIR}/lib/puppet/provider/exec/windows.rb
 ${GEM_LIBDIR}/lib/puppet/provider/file/posix.rb
 ${GEM_LIBDIR}/lib/puppet/provider/file/windows.rb
 ${GEM_LIBDIR}/lib/puppet/provider/group/aix.rb
+${GEM_LIBDIR}/lib/puppet/provider/group/busybox.rb
 ${GEM_LIBDIR}/lib/puppet/provider/group/directoryservice.rb
 ${GEM_LIBDIR}/lib/puppet/provider/group/groupadd.rb
 ${GEM_LIBDIR}/lib/puppet/provider/group/ldap.rb
@@ -868,6 +869,7 @@ ${GEM_LIBDIR}/lib/puppet/provider/service/windows.rb
 ${GEM_LIBDIR}/lib/puppet/provider/ssh_authorized_key/parsed.rb
 ${GEM_LIBDIR}/lib/puppet/provider/sshkey/parsed.rb
 ${GEM_LIBDIR}/lib/puppet/provider/user/aix.rb
+${GEM_LIBDIR}/lib/puppet/provider/user/busybox.rb
 ${GEM_LIBDIR}/lib/puppet/provider/user/directoryservice.rb
 ${GEM_LIBDIR}/lib/puppet/provider/user/hpux.rb
 ${GEM_LIBDIR}/lib/puppet/provider/user/ldap.rb

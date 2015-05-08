@@ -20,6 +20,7 @@ RUBY_VERSION_SUPPORTED=	200 193 21
 
 CONFLICTS+=		ruby[1-9][0-9]-puppet-[0-9]* puppet-[0-9]*
 
+LIBDIR=			${VARBASE}/lib/puppet/
 PKG_SYSCONFSUBDIR=	puppet
 RCD_SCRIPTS=		puppetd puppetmasterd
 
@@ -51,6 +52,12 @@ SUBST_FILES.prefix+=	spec/unit/indirector/catalog/static_compiler_spec.rb
 SUBST_SED.prefix=	-e "s|/etc/puppet|${PKG_SYSCONFDIR}|g"
 SUBST_SED.prefix+=	-e "s|/opt/csw/lib|${PREFIX}/lib|g"
 
+SUBST_CLASSES+=		libdir
+SUBST_STAGE.libdir+=	post-patch
+SUBST_FILES.libdir+=	lib/puppet/reference/configuration.rb
+SUBST_FILES.libdir+=	lib/puppet/util/run_mode.rb
+SUBST_SED.libdir=	-e "s|/var/lib/puppet|${LIBDIR}|g"
+
 EGDIR=			share/examples/${PKGBASE}
 CONF_FILES=		${EGDIR}/puppet.conf ${PKG_SYSCONFDIR}/puppet.conf
 
@@ -69,11 +76,11 @@ CONF_FILES=		${EGDIR}/puppet.conf ${PKG_SYSCONFDIR}/puppet.conf
 #PKG_USERS=			${PUPPET_USER}:${PUPPET_GROUP}
 #PKG_GECOS.${PUPPET_USER}=       Puppet configuration management pseudo-user
 
-PLIST_SUBST+=		EGDIR=${EGDIR}
+PLIST_SUBST+=		EGDIR=${EGDIR} LIBDIR=${LIBDIR}
 PLIST_VARS+=		sunos
 
 BUILD_DEFS+=		VARBASE
-INSTALLATION_DIRS+=	${EGDIR}
+INSTALLATION_DIRS+=	${EGDIR} ${LIBDIR}
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -101,6 +108,10 @@ pre-build:
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/examples/puppet.conf			\
 		${DESTDIR}${PREFIX}/${EGDIR}
+.for f in user/busybox.rb group/busybox.rb
+	${INSTALL_DATA} ${WRKSRC}/lib/puppet/provider/$f \
+		${DESTDIR}${PREFIX}/${GEM_LIBDIR}/lib/puppet/provider/$f
+.endfor
 .if ${OPSYS} == "SunOS"
 	${INSTALL_DATA} ${WRKSRC}/ext/solaris/smf/puppetd.xml		\
 		${DESTDIR}${PREFIX}/${EGDIR}/svc
