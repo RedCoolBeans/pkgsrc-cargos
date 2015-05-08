@@ -9,5 +9,6 @@ SUBDIR+=	cargos-user_busybox
 SUBDIR+=	docker-compose
 SUBDIR+=	docker-machine
 SUBDIR+=	docker.io
+SUBDIR+=	virt-what
 
 .include "../mk/misc/category.mk"
