@@ -1427,3 +1427,4 @@ man/man3/tls_write.3
 man/man3/ui.3
 man/man3/ui_compat.3
 man/man3/x509.3
+share/examples/openssl/openssl.cnf
