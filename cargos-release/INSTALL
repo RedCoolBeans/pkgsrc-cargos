@@ -8,13 +8,12 @@ POST-INSTALL)
 
 	# prevent failure and hide stderr in case the cert dirs already exists
 	if [ -x ${LOCALBASE}/sbin/mozilla-rootcerts ]; then
-		mkdir -p ${PKG_SYSCONFDIR}/openssl/certs
 		cd ${PKG_SYSCONFDIR}/openssl/certs || exit 1
 		PATH=${PATH}:${LOCALBASE}/sbin \
 			${LOCALBASE}/sbin/mozilla-rootcerts extract >/dev/null
 		PATH=${PATH}:${LOCALBASE}/sbin \
 			${LOCALBASE}/sbin/mozilla-rootcerts rehash >/dev/null
-		mkdir -p /etc/ssl/certs || exit 1
-		cat ${PKG_SYSCONFDIR}/openssl/certs/*.pem >/etc/ssl/certs/ca-certificates.crt
+		cd /etc/ssl/certs || exit 1
+		cat ${PKG_SYSCONFDIR}/openssl/certs/*.pem >ca-certificates.crt
 	fi
 esac

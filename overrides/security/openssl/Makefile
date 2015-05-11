@@ -6,7 +6,7 @@ SUPERSEDES+=	openssl-[0-9]*
 DISTNAME=	libressl-2.1.6
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_OPENBSD:=LibreSSL/}
-PKGREVISION=	1
+PKGREVISION=	2
 
 MAINTAINER=	pkgsrc@cargos.io
 HOMEPAGE=	http://www.libressl.org/
@@ -28,7 +28,7 @@ PKG_SYSCONFSUBDIR=	openssl
 CONFIGURE_ARGS+=	--with-openssldir=${PKG_SYSCONFDIR}
 CONFIGURE_ARGS+=	--with-enginesdir=${PREFIX}/lib/engines
 
-OWN_DIRS=	${PKG_SYSCONFDIR}/certs ${PKG_SYSCONFDIR}/private
+OWN_DIRS=	${PKG_SYSCONFDIR}/certs ${PKG_SYSCONFDIR}/private /etc/ssl/certs
 
 # Added for 2.1.6 - remove for next stable version as it's fixed upstream
 CPPFLAGS.NetBSD+=	-D_OPENBSD_SOURCE
