@@ -3,6 +3,6 @@ $NetBSD: distinfo,v 1.10 2014/01/02 01:41:48 tonnerre Exp $
 SHA1 (puppet-3.7.4.gem) = 6784b4b8653483bd8424984721ae2eb50ff19605
 RMD160 (puppet-3.7.4.gem) = a3bf3c86f1765d5b420046a8530f40d32858f4f5
 Size (puppet-3.7.4.gem) = 2630144 bytes
-SHA1 (patch-lib_puppet_provider_group_busybox.rb) = 07778dcae8e00e0721605d85f68bc719734b87e1
+SHA1 (patch-lib_puppet_provider_group_busybox.rb) = de26eae6faf7ca12d94affb6472a9192a27b1f35
 SHA1 (patch-lib_puppet_provider_package_pkgin.rb) = f26dac26d0522f904243fc164f186baf69b323dd
 SHA1 (patch-lib_puppet_provider_user_busybox.rb) = 25964c9f667303de95595df2b40723515380b3b3

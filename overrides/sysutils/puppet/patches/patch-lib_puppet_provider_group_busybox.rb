@@ -2,7 +2,7 @@ $NetBSD$
 
 --- lib/puppet/provider/group/busybox.rb.orig
 +++ lib/puppet/provider/group/busybox.rb
-@@ -0,0 +1,28 @@
+@@ -0,0 +1,42 @@
 +require 'puppet/provider/nameservice'
 +require 'puppet/error'
 +
@@ -10,6 +10,20 @@ $NetBSD$
 +  desc "Local group management for Busybox"
 +
 +  commands :busybox => "busybox"
++
++  def create
++    debug "creating #{@resource[:name]}"
++    opts = []
++    opts += ["-g", @resource[:gid]] if @resource[:gid]
++    opts += ["-S"] if @resource[:system]
++
++    busybox(:addgroup, opts.flatten.compact, @resource[:name])
++  end
++
++  def delete
++    debug "deleting #{@resource[:name]}"
++    busybox(:delgroup, @resource[:name])
++  end
 +
 +  def exists?
 +    groups = []
