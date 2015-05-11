@@ -2,7 +2,7 @@ $NetBSD$
 
 --- lib/puppet/provider/group/busybox.rb.orig
 +++ lib/puppet/provider/group/busybox.rb
-@@ -0,0 +1,42 @@
+@@ -0,0 +1,43 @@
 +require 'puppet/provider/nameservice'
 +require 'puppet/error'
 +
@@ -10,6 +10,7 @@ $NetBSD$
 +  desc "Local group management for Busybox"
 +
 +  commands :busybox => "busybox"
++  has_feature :system_groups
 +
 +  def create
 +    debug "creating #{@resource[:name]}"
