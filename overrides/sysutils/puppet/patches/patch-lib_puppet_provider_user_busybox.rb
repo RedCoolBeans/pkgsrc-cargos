@@ -2,7 +2,7 @@ $NetBSD$
 
 --- lib/puppet/provider/user/busybox.rb.orig
 +++ lib/puppet/provider/user/busybox.rb
-@@ -0,0 +1,92 @@
+@@ -0,0 +1,93 @@
 +require 'puppet/provider/nameservice'
 +require 'puppet/error'
 +require 'open3'
@@ -37,6 +37,7 @@ $NetBSD$
 +  def password=(pwhash)
 +    # XXX: Feels like a hack but Shadow::Passwd.sgetspent() is unusable for it crashes:
 +    # *** Error in `irb': free(): invalid pointer: 0x00007fc9103b2be0 ***
++    # Once ruby-shadow works we can also enable password expiration.
 +    stdin, stdout, stderr = Open3.popen3("echo \"#{resource[:name]}:#{resource[:password]}\" | chpasswd -e")
 +    stdin.close
 +  end
