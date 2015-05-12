@@ -7,5 +7,5 @@ SHA1 (patch-lib_puppet_provider_group_busybox.rb) = 9dd632bd29e2929d6a40245b69fc
 SHA1 (patch-lib_puppet_provider_package_pkgin.rb) = f26dac26d0522f904243fc164f186baf69b323dd
 SHA1 (patch-lib_puppet_provider_service_bsd.rb) = cd1243a999e897814b24402fd4c69e67bec96048
 SHA1 (patch-lib_puppet_provider_service_init.rb) = 908d55a2db1d9ea2c453d0dd06ebd97fd65fc3e8
-SHA1 (patch-lib_puppet_provider_service_rcng.rb) = 39fa1cdcab3ebc237751a300a8bed5c08d790199
+SHA1 (patch-lib_puppet_provider_service_rcng.rb) = d0c28b07d395dc241ea65c026f30347f9028598b
 SHA1 (patch-lib_puppet_provider_user_busybox.rb) = 8efbe9b7c774066a46d7840ad2d1286a079a33e0

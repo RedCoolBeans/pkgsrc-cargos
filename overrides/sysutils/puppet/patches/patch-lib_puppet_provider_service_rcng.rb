@@ -11,7 +11,7 @@ New provider for RCng which uses the correct content to enable a service and pre
 +    RCng service management with rc.d
 +  EOT
 +
-+  confine :operatingsystem => [:netbsd, :cargos]
++  defaultfor :operatingsystem => [:netbsd, :cargos]
 +
 +  def self.defpath
 +    "/etc/rc.d"
