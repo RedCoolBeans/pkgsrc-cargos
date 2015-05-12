@@ -5,4 +5,7 @@ RMD160 (puppet-3.7.4.gem) = a3bf3c86f1765d5b420046a8530f40d32858f4f5
 Size (puppet-3.7.4.gem) = 2630144 bytes
 SHA1 (patch-lib_puppet_provider_group_busybox.rb) = 88d39ad74e63ee0120b29d271eecaf0a0f110c2a
 SHA1 (patch-lib_puppet_provider_package_pkgin.rb) = f26dac26d0522f904243fc164f186baf69b323dd
+SHA1 (patch-lib_puppet_provider_service_bsd.rb) = b8fb62e3fb7dc0d5c368c05b2e949ed53663dcef
+SHA1 (patch-lib_puppet_provider_service_init.rb) = 908d55a2db1d9ea2c453d0dd06ebd97fd65fc3e8
+SHA1 (patch-lib_puppet_provider_service_rcng.rb) = 2572434c8603378f8930ef3ceb380229806b72b3
 SHA1 (patch-lib_puppet_provider_user_busybox.rb) = 8dc9627aa4c783b58f545bb2e9557ddddfce39d3

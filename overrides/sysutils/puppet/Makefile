@@ -108,7 +108,7 @@ pre-build:
 post-install:
 	${INSTALL_DATA} ${WRKSRC}/examples/puppet.conf			\
 		${DESTDIR}${PREFIX}/${EGDIR}
-.for f in user/busybox.rb group/busybox.rb
+.for f in user/busybox.rb group/busybox.rb service/rcng.rb
 	${INSTALL_DATA} ${WRKSRC}/lib/puppet/provider/$f \
 		${DESTDIR}${PREFIX}/${GEM_LIBDIR}/lib/puppet/provider/$f
 .endfor

@@ -858,6 +858,7 @@ ${GEM_LIBDIR}/lib/puppet/provider/service/launchd.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/openbsd.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/openrc.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/openwrt.rb
+${GEM_LIBDIR}/lib/puppet/provider/service/rcng.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/redhat.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/runit.rb
 ${GEM_LIBDIR}/lib/puppet/provider/service/service.rb
