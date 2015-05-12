@@ -2,7 +2,7 @@ $NetBSD$
 
 --- lib/puppet/provider/group/busybox.rb.orig
 +++ lib/puppet/provider/group/busybox.rb
-@@ -0,0 +1,43 @@
+@@ -0,0 +1,39 @@
 +require 'puppet/provider/nameservice'
 +require 'puppet/error'
 +
@@ -27,12 +27,8 @@ $NetBSD$
 +  end
 +
 +  def exists?
-+    groups = []
-+    Etc.send("setgrent")
 +    begin
-+      while ent = Etc.send("getgrent")
-+        return true if ent.name == @resource[:name]
-+      end
++      !!Etc.getgrnam(@resource[:name])
 +    rescue
 +      false
 +    end

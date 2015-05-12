@@ -2,7 +2,7 @@ $NetBSD$
 
 --- lib/puppet/provider/user/busybox.rb.orig
 +++ lib/puppet/provider/user/busybox.rb
-@@ -0,0 +1,93 @@
+@@ -0,0 +1,98 @@
 +require 'puppet/provider/nameservice'
 +require 'puppet/error'
 +require 'open3'
@@ -13,6 +13,8 @@ $NetBSD$
 +  commands :busybox => "busybox"
 +  # :manages_passwords requires Busybox to be compiled with FEATURE_SHADOWPASSWDS
 +  has_features :manages_shell, :system_users, :manages_passwords
++
++  options :password, :method => :sp_pwdp
 +
 +  def create
 +    debug "creating #{@resource[:name]}"
@@ -42,18 +44,21 @@ $NetBSD$
 +    stdin.close
 +  end
 +
-+  def password
-+    if Puppet.features.libshadow?
-+      if ent = Shadow::Passwd.getspnam(@resource[:name])
-+        return unmunge(:password, ent.send(:sp_pwdp))
++  [:password].each do |shadow_property|
++    define_method(shadow_property) do
++      if Puppet.features.libshadow?
++        if ent = Shadow::Passwd.getspnam(@resource.name)
++          method = self.class.option(shadow_property, :method)
++          return unmunge(shadow_property, ent.send(method))
++        end
 +      end
++      :absent
 +    end
-+    :absent
 +  end
 +
 +  def exists?
 +    begin
-+      Etc.getpwnam(@resource[:name])
++      !!Etc.getpwnam(@resource[:name])
 +    rescue
 +      false
 +    end
