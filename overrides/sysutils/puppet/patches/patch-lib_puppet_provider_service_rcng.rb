@@ -5,7 +5,7 @@ New provider for RCng which uses the correct content to enable a service and pre
 
 --- lib/puppet/provider/service/rcng.rb.orig
 +++ lib/puppet/provider/service/rcng.rb
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,22 @@
 +Puppet::Type.type(:service).provide :rcng, :parent => :bsd do
 +  desc <<-EOT
 +    RCng service management with rc.d
@@ -23,6 +23,8 @@ New provider for RCng which uses the correct content to enable a service and pre
 +    debug "Enabling"
 +    Dir.mkdir(rcconf_dir) if not Puppet::FileSystem.exist?(rcconf_dir)
 +    rcfile = File.join(rcconf_dir, @resource[:name])
-+    open(rcfile, 'w') { |f| f << "%s=${%s:=YES}\n" % [@resource[:name], @resource[:name]] }
++    File.open(rcfile, File::WRONLY | File::APPEND | File::CREAT, 0644) { |f|
++      f << "%s=${%s:=YES}\n" % [@resource[:name], @resource[:name]]
++    }
 +  end
 +end

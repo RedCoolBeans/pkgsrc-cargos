@@ -37,14 +37,16 @@ $NetBSD$
      return :true if Puppet::FileSystem.exist?(rcfile)
  
      :false
-@@ -35,8 +34,8 @@
+@@ -35,8 +34,10 @@
    # proper contents
    def enable
      Dir.mkdir(rcconf_dir) if not Puppet::FileSystem.exist?(rcconf_dir)
 -    rcfile = File.join(rcconf_dir, @model[:name])
 -    open(rcfile, 'w') { |f| f << "%s_enable=\"YES\"\n" % @model[:name] }
 +    rcfile = File.join(rcconf_dir, @resource[:name])
-+    open(rcfile, 'w') { |f| f << "%s_enable=\"YES\"\n" % @resource[:name] }
++    File.open(rcfile, File::WRONLY | File::APPEND | File::CREAT, 0644) { |f|
++      f << "%s_enable=\"YES\"\n" % @resource[:name]
++    }
    end
  
    # Override stop/start commands to use one<cmd>'s and the avoid race condition
