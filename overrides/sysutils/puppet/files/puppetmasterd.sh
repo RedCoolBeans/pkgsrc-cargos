@@ -21,26 +21,11 @@ name="puppetmasterd"
 rcvar=$name
 command="@PREFIX@/bin/puppet"
 command_interpreter="@RUBY@"
-start_precmd="puppetmasterd_checkconfig"
-restart_precmd="puppetmasterd_checkconfig"
 : ${puppetmasterd_confdir="@PKG_SYSCONFDIR@"}
 : ${puppetmasterd_pid="/var/run/${name}.pid"}
 : ${puppetmasterd_flags="master --confdir $puppetmasterd_confdir --rundir /var/run"}
 
 pidfile="$puppetmasterd_pid"
-
-puppetmasterd_checkconfig() {
-	echo -n "Performing sanity check of ${name} configuration: "
-	${command} --parseonly ${puppetmasterd_flags} >/dev/null 2>&1
-	rv=$?
-	if [ $rv != 0 ]; then
-		echo "FAILED, ${name} exited with status ${rv}"
-		${command} --parseonly ${puppetmasterd_flags}
-		return 1
-	else
-		echo "OK"
-	fi
-}
 
 if [ -f /etc/rc.subr -a -d /etc/rc.d -a -f /etc/rc.d/DAEMON ]; then
 	load_rc_config "$name"
