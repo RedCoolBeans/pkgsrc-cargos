@@ -10,7 +10,7 @@
 #
 # puppetd="YES"
 # puppetd_confdir="@PKG_SYSCONFDIR@"
-# puppetd_pid="/var/run/${name}.pid"
+# puppetd_pid="/var/run/agent.pid"
 # puppetd_flags="agent --confdir $puppetd_confdir --rundir /var/run"
 
 if [ -f /etc/rc.subr ]; then

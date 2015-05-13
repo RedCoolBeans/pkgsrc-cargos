@@ -10,6 +10,7 @@
 #
 # puppetmasterd="YES"
 # puppetmasterd_confdir:	Set to @PKG_SYSCONFDIR@ by default
+# puppetmasterd_pid:        Set to /var/run/master.pid by default
 # puppetmasterd_flags:		Set to master --confdir $puppetmasterd_confdir --rundir /var/run" by default
 #
 
