@@ -22,7 +22,7 @@ rcvar=$name
 command="@PREFIX@/bin/puppet"
 command_interpreter="@RUBY@"
 : ${puppetd_confdir="@PKG_SYSCONFDIR@"}
-: ${puppetd_pid="/var/run/${name}.pid"}
+: ${puppetd_pid="/var/run/agent.pid"}
 : ${puppetd_flags="agent --confdir $puppetd_confdir --rundir /var/run"}
 
 pidfile="$puppetd_pid"
