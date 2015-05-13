@@ -61,20 +61,18 @@ SUBST_SED.libdir=	-e "s|/var/lib/puppet|${LIBDIR}|g"
 EGDIR=			share/examples/${PKGBASE}
 CONF_FILES=		${EGDIR}/puppet.conf ${PKG_SYSCONFDIR}/puppet.conf
 
-## Since these users are needed only for puppet server,
-## puppet-server package should be created.
-#SUBST_CLASSES+=		user
-#SUBST_STAGE.user=	post-patch
-#SUBST_FILES.user=	lib/puppet/defaults.rb
-#SUBST_SED.user=		-e "s|@PUPPET_GROUP@|${PUPPET_GROUP}|g"
-#SUBST_SED.user+=	-e "s|@PUPPET_USER@|${PUPPET_USER}|g"
+SUBST_CLASSES+=		user
+SUBST_STAGE.user=	post-patch
+SUBST_FILES.user=	lib/puppet/defaults.rb
+SUBST_SED.user=		-e "s|@PUPPET_GROUP@|${PUPPET_GROUP}|g"
+SUBST_SED.user+=	-e "s|@PUPPET_USER@|${PUPPET_USER}|g"
+
+PKG_GROUPS_VARS=		PUPPET_GROUP
+PKG_USERS_VARS=			PUPPET_USER
 #
-#PKG_GROUPS_VARS=		PUPPET_GROUP
-#PKG_USERS_VARS=			PUPPET_USER
-#
-#PKG_GROUPS=			${PUPPET_GROUP}
-#PKG_USERS=			${PUPPET_USER}:${PUPPET_GROUP}
-#PKG_GECOS.${PUPPET_USER}=       Puppet configuration management pseudo-user
+PKG_GROUPS=			${PUPPET_GROUP}
+PKG_USERS=			${PUPPET_USER}:${PUPPET_GROUP}
+PKG_GECOS.${PUPPET_USER}=       Puppet configuration management pseudo-user
 
 PLIST_SUBST+=		EGDIR=${EGDIR} LIBDIR=${LIBDIR}
 PLIST_VARS+=		sunos
@@ -84,8 +82,8 @@ INSTALLATION_DIRS+=	${EGDIR} ${LIBDIR}
 
 .include "../../mk/bsd.prefs.mk"
 
-#PUPPET_GROUP?=		puppet
-#PUPPET_USER?=		puppet
+PUPPET_GROUP?=		puppet
+PUPPET_USER?=		puppet
 
 .if ${OPSYS} == "SunOS"
 INSTALLATION_DIRS+=	lib/svc/method ${EGDIR}/svc
