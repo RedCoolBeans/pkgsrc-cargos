@@ -25,28 +25,10 @@ Subject: [PATCH] (maint) Enable rubocop checking for shadowed variables
 -    #   vim-7.2.446 =        Vim editor (vi clone) without GUI
 -    match, name, version, status = *package.match(/(\S+)-(\S+)(?: (=|>|<))?\s+.+$/)
 +    #   vim-7.2.446;Vim editor (vi clone) without GUI
-+    match, name, version, status = *package.match(/(\S+)-(\S+?);(?:(=|>|<))?.+$/)
++    match, name, version, status = *package.match(/([^\s\-]+)-([^;\s]+)[;\s](=|>|<)?.+$/)
      if match
        {
          :name     => name,
-@@ -30,7 +30,7 @@
-   end
- 
-   def self.instances
--    pkgin(:list).split("\n").map do |package|
-+    pkgin("-p", :list).split("\n").map do |package|
-       new(parse_pkgin_line(package))
-     end
-   end
-@@ -51,7 +51,7 @@
-   end
- 
-   def parse_pkgsearch_line
--    packages = pkgin(:search, resource[:name]).split("\n")
-+    packages = pkgin("-p", :search, resource[:name]).split("\n")
- 
-     return [] if packages.length == 1
- 
 @@ -75,7 +75,7 @@
    end
  
