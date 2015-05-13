@@ -5,7 +5,7 @@ New provider for RCng which uses the correct content to enable a service and pre
 
 --- lib/puppet/provider/service/rcng.rb.orig
 +++ lib/puppet/provider/service/rcng.rb
-@@ -0,0 +1,42 @@
+@@ -0,0 +1,49 @@
 +Puppet::Type.type(:service).provide :rcng, :parent => :bsd do
 +  desc <<-EOT
 +    RCng service management with rc.d
@@ -40,7 +40,14 @@ New provider for RCng which uses the correct content to enable a service and pre
 +    Dir.mkdir(rcconf_dir) if not Puppet::FileSystem.exist?(rcconf_dir)
 +    rcfile = File.join(rcconf_dir, @resource[:name])
 +    if Puppet::FileSystem.exist?(rcfile)
-+      fail("#{rcfile} exists, cowardly refusing to overwrite until #enable is adjusted")
++      newcontents = []
++      File.open(rcfile).readlines.each do |line|
++        if matchdata = line.match(/^#{@resource[:name]}=(NO|\$\{#{@resource[:name]}:NO\})/)
++          line = "#{@resource[:name]}=${#{@resource[:name]}:=YES}"
++        end
++        newcontents.push(line)
++      end
++      File.open(rcfile, 'w') { |file| file.puts newcontents }
 +    else
 +      File.open(rcfile, File::WRONLY | File::CREAT, 0644) { |f|
 +        f << "%s=${%s:=YES}\n" % [@resource[:name], @resource[:name]]
