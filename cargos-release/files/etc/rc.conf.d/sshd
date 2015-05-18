@@ -2,3 +2,5 @@
 # @EGDIR@/etc/rc.conf.d/sshd
 
 sshd=${sshd:=YES}
+command="nohup ${command}"
+command_args="-D &"
