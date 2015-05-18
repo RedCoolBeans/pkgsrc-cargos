@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		3
+PKGREVISION=		4
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
