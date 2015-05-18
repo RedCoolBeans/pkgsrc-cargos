@@ -35,12 +35,12 @@ MAKE_DIRS +=		${d}
 F600S +=		/etc/cron/crontabs/root
 
 F644S +=		/etc/ld.so.conf
-F644S +=		/etc/ntp.conf
 F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh
 F644S +=		/etc/profile.d/pkgsrc.sh
 F644S +=		/etc/rc.conf.d/docker
+F644S +=		/etc/rc.conf.d/ntpd
 F644S +=		/etc/rc.conf.d/sshd
 
 F644S +=		/usr/pkg/etc/gnupg/pkgsrc.gpg

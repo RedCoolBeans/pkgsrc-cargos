@@ -1,0 +1,5 @@
+# @PKGNAME@
+# @EGDIR@/etc/rc.conf.d/docker
+
+ntpd=${ntpd:=YES}
+ntpd_flags="-p pool.ntp.org"
