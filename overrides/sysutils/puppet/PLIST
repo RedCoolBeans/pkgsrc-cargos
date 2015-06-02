@@ -163,6 +163,7 @@ ${GEM_LIBDIR}/ext/windows/service/daemon.rb
 ${GEM_LIBDIR}/ext/yaml_nodes.rb
 ${GEM_LIBDIR}/install.rb
 ${GEM_LIBDIR}/lib/hiera/backend/puppet_backend.rb
+${GEM_LIBDIR}/lib/hiera/puppet_function.rb
 ${GEM_LIBDIR}/lib/hiera/scope.rb
 ${GEM_LIBDIR}/lib/hiera_puppet.rb
 ${GEM_LIBDIR}/lib/puppet.rb
@@ -333,9 +334,14 @@ ${GEM_LIBDIR}/lib/puppet/forge/errors.rb
 ${GEM_LIBDIR}/lib/puppet/forge/repository.rb
 ${GEM_LIBDIR}/lib/puppet/functions.rb
 ${GEM_LIBDIR}/lib/puppet/functions/assert_type.rb
+${GEM_LIBDIR}/lib/puppet/functions/defined.rb
 ${GEM_LIBDIR}/lib/puppet/functions/each.rb
 ${GEM_LIBDIR}/lib/puppet/functions/epp.rb
 ${GEM_LIBDIR}/lib/puppet/functions/filter.rb
+${GEM_LIBDIR}/lib/puppet/functions/hiera.rb
+${GEM_LIBDIR}/lib/puppet/functions/hiera_array.rb
+${GEM_LIBDIR}/lib/puppet/functions/hiera_hash.rb
+${GEM_LIBDIR}/lib/puppet/functions/hiera_include.rb
 ${GEM_LIBDIR}/lib/puppet/functions/import.rb
 ${GEM_LIBDIR}/lib/puppet/functions/inline_epp.rb
 ${GEM_LIBDIR}/lib/puppet/functions/map.rb
@@ -704,7 +710,9 @@ ${GEM_LIBDIR}/lib/puppet/pops/evaluator/compare_operator.rb
 ${GEM_LIBDIR}/lib/puppet/pops/evaluator/epp_evaluator.rb
 ${GEM_LIBDIR}/lib/puppet/pops/evaluator/evaluator_impl.rb
 ${GEM_LIBDIR}/lib/puppet/pops/evaluator/external_syntax_support.rb
+${GEM_LIBDIR}/lib/puppet/pops/evaluator/puppet_proc.rb
 ${GEM_LIBDIR}/lib/puppet/pops/evaluator/relationship_operator.rb
+${GEM_LIBDIR}/lib/puppet/pops/evaluator/runtime3_converter.rb
 ${GEM_LIBDIR}/lib/puppet/pops/evaluator/runtime3_support.rb
 ${GEM_LIBDIR}/lib/puppet/pops/functions/dispatch.rb
 ${GEM_LIBDIR}/lib/puppet/pops/functions/dispatcher.rb
@@ -724,6 +732,7 @@ ${GEM_LIBDIR}/lib/puppet/pops/loader/simple_environment_loader.rb
 ${GEM_LIBDIR}/lib/puppet/pops/loader/static_loader.rb
 ${GEM_LIBDIR}/lib/puppet/pops/loader/uri_helper.rb
 ${GEM_LIBDIR}/lib/puppet/pops/loaders.rb
+${GEM_LIBDIR}/lib/puppet/pops/migration/migration_checker.rb
 ${GEM_LIBDIR}/lib/puppet/pops/model/ast_transformer.rb
 ${GEM_LIBDIR}/lib/puppet/pops/model/ast_tree_dumper.rb
 ${GEM_LIBDIR}/lib/puppet/pops/model/factory.rb
@@ -1548,6 +1557,12 @@ ${GEM_LIBDIR}/spec/fixtures/unit/pops/binder/config/binder_config/ok/binder_conf
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/dependent_modules_with_metadata/usee/lib/puppet/functions/usee/callee.rb
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/dependent_modules_with_metadata/user/lib/puppet/functions/user/caller.rb
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/dependent_modules_with_metadata/user/metadata.json
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/usee/lib/puppet/parser/functions/callee.rb
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/usee/lib/puppet/parser/functions/callee_ws.rb
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/usee/metadata.json
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/user/lib/puppet/functions/user/caller.rb
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/user/lib/puppet/functions/user/caller_ws.rb
+${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/mix_4x_and_3x_functions/user/metadata.json
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/single_module/modules/modulea/lib/puppet/functions/modulea/rb_func_a.rb
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/single_module/modules/modulea/lib/puppet/functions/rb_func_a.rb
 ${GEM_LIBDIR}/spec/fixtures/unit/pops/loaders/loaders/single_module/modules/modulea/manifests/init.pp
@@ -1701,6 +1716,7 @@ ${GEM_LIBDIR}/spec/integration/parser/class_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/collector_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/compiler_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/conditionals_spec.rb
+${GEM_LIBDIR}/spec/integration/parser/environment_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/functions/require_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/future_compiler_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/node_spec.rb
@@ -1879,9 +1895,11 @@ ${GEM_LIBDIR}/spec/unit/forge/module_release_spec.rb
 ${GEM_LIBDIR}/spec/unit/forge/repository_spec.rb
 ${GEM_LIBDIR}/spec/unit/forge_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/assert_type_spec.rb
+${GEM_LIBDIR}/spec/unit/functions/defined_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/each_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/epp_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/filter_spec.rb
+${GEM_LIBDIR}/spec/unit/functions/hiera_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/inline_epp_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/map_spec.rb
 ${GEM_LIBDIR}/spec/unit/functions/match_spec.rb
@@ -2117,6 +2135,7 @@ ${GEM_LIBDIR}/spec/unit/parser/functions/lookup_spec.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/realize_spec.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/regsubst_spec.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/require_spec.rb
+${GEM_LIBDIR}/spec/unit/parser/functions/scanf_spec.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/search_spec.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/shared.rb
 ${GEM_LIBDIR}/spec/unit/parser/functions/shellquote_spec.rb
@@ -2163,6 +2182,7 @@ ${GEM_LIBDIR}/spec/unit/pops/loaders/loader_paths_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/loaders/loaders_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/loaders/module_loaders_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/loaders/static_loader_spec.rb
+${GEM_LIBDIR}/spec/unit/pops/migration_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/model/ast_transformer_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/model/model_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/parser/epp_parser_spec.rb
@@ -2188,6 +2208,7 @@ ${GEM_LIBDIR}/spec/unit/pops/types/type_calculator_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/types/type_factory_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/types/type_parser_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/utils_spec.rb
+${GEM_LIBDIR}/spec/unit/pops/validation_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/validator/validator_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/visitor_spec.rb
 ${GEM_LIBDIR}/spec/unit/property/boolean_spec.rb
