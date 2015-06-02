@@ -176,6 +176,7 @@ ${GEM_LIBDIR}/spec/fixtures/cpuinfo/bbg3-armel
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/beaglexm-armel
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/panda-armel
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/ppc64
+${GEM_LIBDIR}/spec/fixtures/cpuinfo/ppc64le
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/sparc
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/two_multicore-grep
 ${GEM_LIBDIR}/spec/fixtures/cpuinfo/two_singlecore-grep
