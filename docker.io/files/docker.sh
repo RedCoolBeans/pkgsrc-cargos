@@ -11,13 +11,13 @@
 name="docker"
 rcvar=$name
 command="@PREFIX@/bin/$name"
-command_args="-G docker --selinux-enabled"
+command_args="-d"
 start_cmd=docker_start
 
 docker_start()
 {
 	@ECHO@ "Starting ${name}."
-	nohup ${command} -d ${command_args} >/dev/null 2>&1 &
+	nohup ${command} ${docker_flags} ${command_args} >/dev/null 2>&1 &
 }
 
 

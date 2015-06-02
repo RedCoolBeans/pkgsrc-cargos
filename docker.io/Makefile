@@ -8,6 +8,7 @@ PKGNAME=		docker.io-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://get.docker.com/builds/Linux/x86_64/
 EXTRACT_SUFX=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://www.docker.com/

@@ -2,3 +2,4 @@
 # @EGDIR@/etc/rc.conf.d/docker
 
 docker=${docker:=YES}
+docker_flags="${docker_flags:=-G docker --selinux-enabled}"
