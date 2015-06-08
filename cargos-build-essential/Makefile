@@ -4,6 +4,7 @@ DISTNAME=		cargos-build-essential-2015.9
 CATEGORIES=		devel
 MASTER_SITES=		# empty
 DISTFILES=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -18,7 +19,7 @@ DEPENDS +=		bootstrap-mk-files-[0-9]*:../../pkgtools/bootstrap-mk-files
 DEPENDS +=		cvs-[0-9]*:../../devel/scmcvs
 DEPENDS +=		digest-[0-9]*:../../pkgtools/digest
 DEPENDS +=		file-[0-9]*:../../sysutils/file
-DEPENDS +=		gcc47>=4.7:../../lang/gcc47
+DEPENDS +=		gcc49>=4.9:../../lang/gcc49
 DEPENDS +=		gnupg-[0-9]*:../../security/gnupg
 DEPENDS +=		nbpatch-[0-9]*:../../devel/nbpatch
 DEPENDS +=		wget-[0-9]*:../../net/wget
