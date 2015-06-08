@@ -11,7 +11,7 @@ Overrides for pkgsrc (no CVS directories allowed!).
 ### Building packages
 Become root then:
 ```sh
-CARGOS_RELEASE=2015.8
+CARGOS_RELEASE=2015.9
 PKGSRC_BRANCH=pkgsrc-2015Q1
 pkgin -y in cargos-build-essential
 mkdir -p /home/cargos && cd /home/cargos
