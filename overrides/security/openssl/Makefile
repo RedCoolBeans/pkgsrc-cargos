@@ -3,10 +3,9 @@
 CONFLICTS+=	openssl-[0-9]*
 SUPERSEDES+=	openssl-[0-9]*
 
-DISTNAME=	libressl-2.1.6
+DISTNAME=	libressl-2.1.7
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_OPENBSD:=LibreSSL/}
-PKGREVISION=	2
 
 MAINTAINER=	pkgsrc@cargos.io
 HOMEPAGE=	http://www.libressl.org/
