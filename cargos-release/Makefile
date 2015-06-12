@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		4
+PKGREVISION=		6
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -21,6 +21,9 @@ DEPENDS +=		openssh-[0-9]*:../../security/openssh
 DEPENDS +=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 DEPENDS +=		pkgin-[0-9]*:../../pkgtools/pkgin
 
+# XXX
+DEPENDS +=		gcc49-libs-[0-9]*:../../lang/gcc49-libs
+
 EG=			share/examples/cargos-release
 EGDIR=			${PREFIX}/${EG}
 
@@ -35,6 +38,7 @@ MAKE_DIRS +=		${d}
 F600S +=		/etc/cron/crontabs/root
 
 F644S +=		/etc/ld.so.conf
+F644S +=		/etc/ld.so.conf.d/pkgsrc.conf
 F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh
