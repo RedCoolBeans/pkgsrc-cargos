@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		7
+PKGREVISION=		8
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -20,9 +20,6 @@ DEPENDS +=		mdocml-[0-9]*:../../textproc/mdocml
 DEPENDS +=		openssh-[0-9]*:../../security/openssh
 DEPENDS +=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 DEPENDS +=		pkgin-[0-9]*:../../pkgtools/pkgin
-
-# XXX
-DEPENDS +=		gcc49-libs-[0-9]*:../../lang/gcc49-libs
 
 EG=			share/examples/cargos-release
 EGDIR=			${PREFIX}/${EG}
