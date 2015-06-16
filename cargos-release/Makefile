@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		11
+PKGREVISION=		12
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -53,13 +53,9 @@ F644S +=		/usr/pkg/etc/pkg_install.conf
 INSTALLATION_DIRS +=	${EG}${d}
 MAKE_DIRS +=		${d}
 .endfor
-
 F755S +=		/etc/acpi/PWRB/00000080
-
 CONF_FILES_PERMS +=	${EGDIR}/etc/acpi/PWRB/00000080 /etc/acpi/PWRF/00000080 \
 				${ROOT_USER} ${ROOT_GROUP} 0755
-
-PLIST.x86_64 =		Yes
 .endif
 
 .for f in ${F600S}
@@ -76,8 +72,6 @@ CONF_FILES_PERMS +=	${EGDIR}${f} ${f} ${ROOT_USER} ${ROOT_GROUP} 0755
 
 INSTALLATION_DIRS +=	${EG}/etc/cron/crontabs ${VARBASE}
 MAKE_DIRS_PERMS +=	/etc/cron/crontabs ${ROOT_USER} ${ROOT_GROUP} 0750
-
-PLIST_SRC =		${PKGDIR}/PLIST.common
 
 do-build:
 .for d in ${MAKE_DIRS} /etc/cron/crontabs
