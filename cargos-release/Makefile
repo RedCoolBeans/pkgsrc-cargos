@@ -5,7 +5,7 @@ DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		10
+PKGREVISION=		11
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
@@ -26,8 +26,7 @@ EGDIR=			${PREFIX}/${EG}
 
 WRKSRC=			${WRKDIR}
 
-.for d in /etc/acpi/PWRB /etc/acpi/PWRF /etc/ld.so.conf.d /etc/profile.d \
-          /etc/rc.conf.d /usr/pkg/etc/gnupg
+.for d in /etc/ld.so.conf.d /etc/profile.d /etc/rc.conf.d /usr/pkg/etc/gnupg
 INSTALLATION_DIRS +=	${EG}${d}
 MAKE_DIRS +=		${d}
 .endfor
@@ -48,7 +47,20 @@ F644S +=		/usr/pkg/etc/gnupg/pkgsrc.gpg
 F644S +=		/usr/pkg/etc/mk.conf
 F644S +=		/usr/pkg/etc/pkg_install.conf
 
+# ACPI is x86_64-only
+.if ${MACHINE_ARCH} == "x86_64"
+.for d in /etc/acpi/PWRB /etc/acpi/PWRF
+INSTALLATION_DIRS +=	${EG}${d}
+MAKE_DIRS +=		${d}
+.endfor
+
 F755S +=		/etc/acpi/PWRB/00000080
+
+CONF_FILES_PERMS +=	${EGDIR}/etc/acpi/PWRB/00000080 /etc/acpi/PWRF/00000080 \
+				${ROOT_USER} ${ROOT_GROUP} 0755
+
+PLIST.x86_64 =		Yes
+.endif
 
 .for f in ${F600S}
 CONF_FILES_PERMS +=	${EGDIR}${f} ${f} ${ROOT_USER} ${ROOT_GROUP} 0600
@@ -64,8 +76,8 @@ CONF_FILES_PERMS +=	${EGDIR}${f} ${f} ${ROOT_USER} ${ROOT_GROUP} 0755
 
 INSTALLATION_DIRS +=	${EG}/etc/cron/crontabs ${VARBASE}
 MAKE_DIRS_PERMS +=	/etc/cron/crontabs ${ROOT_USER} ${ROOT_GROUP} 0750
-CONF_FILES_PERMS +=	${EGDIR}/etc/acpi/PWRB/00000080 /etc/acpi/PWRF/00000080 \
-				${ROOT_USER} ${ROOT_GROUP} 0755
+
+PLIST_SRC =		${PKGDIR}/PLIST.common
 
 do-build:
 .for d in ${MAKE_DIRS} /etc/cron/crontabs

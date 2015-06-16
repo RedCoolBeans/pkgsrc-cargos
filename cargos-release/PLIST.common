@@ -1,5 +1,4 @@
 @comment $NetBSD$
-share/examples/cargos-release/etc/acpi/PWRB/00000080
 share/examples/cargos-release/etc/cron/crontabs/root
 share/examples/cargos-release/etc/ld.so.conf
 share/examples/cargos-release/etc/ld.so.conf.d/pkgsrc.conf
@@ -16,4 +15,3 @@ share/examples/cargos-release/usr/pkg/etc/pkg_install.conf
 var/run
 var/tmp
 @pkgdir share/examples/cargos-release/etc/ld.so.conf.d
-@pkgdir share/examples/cargos-release/etc/acpi/PWRF
