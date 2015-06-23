@@ -15,21 +15,13 @@ COMMENT=		Define and run complex applications using Docker
 LICENSE=		apache-2.0
 
 INSTALLATION_DIRS=	bin libexec
-#NO_BUILD=		yes
+NO_BUILD=		yes
 WRKSRC=			${WRKDIR}/docker-compose-${V}
 
 DEPENDS+=		docker.io-[0-9]*:../../cargos/docker.io
 
-do-build:
-	${MKDIR} ${WRKSRC}
-	${SED} -e "s,@PREFIX@,${PREFIX},g" \
-		${FILESDIR}/docker-compose.in >${WRKDIR}/docker-compose
-
 do-install:
-	${CP} ${WRKDIR}/${DISTNAME} \
-		${DESTDIR}${PREFIX}/libexec/docker-compose
-	${CHMOD} +x ${DESTDIR}${PREFIX}/libexec/docker-compose
-	${INSTALL_SCRIPT} ${WRKDIR}/docker-compose \
+	${INSTALL_SCRIPT} ${WRKDIR}/${DISTNAME} \
 		${DESTDIR}${PREFIX}/bin/docker-compose
 
 .include "../../mk/bsd.pkg.mk"

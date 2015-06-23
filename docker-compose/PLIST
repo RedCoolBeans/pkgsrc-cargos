@@ -1,3 +1,2 @@
 @comment $NetBSD$
 bin/docker-compose
-libexec/docker-compose
