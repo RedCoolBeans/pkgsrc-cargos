@@ -8,6 +8,7 @@ PKGNAME=		docker-machine-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://github.com/docker/machine/releases/download/v${V}/
 EXTRACT_SUFX=		# empty
+PKGREVISION=		1
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		https://docs.docker.com/machine/
@@ -21,7 +22,7 @@ WRKSRC=			${WRKDIR}/docker-machine-${V}
 DEPENDS+=		docker.io-[0-9]*:../../cargos/docker.io
 
 do-install:
-	${INSTALL_PROGRAM} ${WRKDIR}/${DISTNAME} \
+	${INSTALL_SCRIPT} ${WRKDIR}/${DISTNAME} \
 		${DESTDIR}${PREFIX}/bin/docker-machine
 
 .include "../../mk/bsd.pkg.mk"
