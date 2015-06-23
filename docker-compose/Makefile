@@ -2,13 +2,12 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.2.0
+V=			1.3.1
 DISTNAME=		docker-compose-Linux-x86_64
 PKGNAME=		docker-compose-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://github.com/docker/compose/releases/download/${V}/
 EXTRACT_SUFX=		# empty
-PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://docs.docker.com/compose/
