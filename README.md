@@ -12,7 +12,7 @@ Overrides for pkgsrc (no CVS directories allowed!).
 Become root then:
 ```sh
 CARGOS_RELEASE=2015.9
-PKGSRC_BRANCH=pkgsrc-2015Q1
+PKGSRC_BRANCH=pkgsrc-2015Q2
 pkgin -y in cargos-build-essential
 mkdir -p /home/cargos && cd /home/cargos
 cvs -d anoncvs@anoncvs.NetBSD.org:/cvsroot -q co -r ${PKGSRC_BRANCH} -P pkgsrc
