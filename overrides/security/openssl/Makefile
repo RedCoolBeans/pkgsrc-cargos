@@ -3,7 +3,7 @@
 CONFLICTS+=	openssl-[0-9]*
 SUPERSEDES+=	openssl-[0-9]*
 
-DISTNAME=	libressl-2.2.0
+DISTNAME=	libressl-2.2.1
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_OPENBSD:=LibreSSL/}
 
