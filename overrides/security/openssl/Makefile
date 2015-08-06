@@ -3,7 +3,7 @@
 CONFLICTS+=	openssl-[0-9]*
 SUPERSEDES+=	openssl-[0-9]*
 
-DISTNAME=	libressl-2.2.1
+DISTNAME=	libressl-2.2.2
 CATEGORIES=	security
 MASTER_SITES=	${MASTER_SITE_OPENBSD:=LibreSSL/}
 
@@ -11,9 +11,6 @@ MAINTAINER=	pkgsrc@cargos.io
 HOMEPAGE=	http://www.libressl.org/
 COMMENT=	Secure Sockets Layer and cryptography libraries and tools
 LICENSE=	openssl
-
-INSTALLATION_DIRS+=	share/examples/openssl
-CONF_FILES=	${PREFIX}/share/examples/openssl/openssl.cnf ${PKG_SYSCONFDIR}/openssl.cnf
 
 GNU_CONFIGURE=	yes
 USE_LIBTOOL=	yes
@@ -25,17 +22,19 @@ PKGCONFIG_OVERRIDE+=	openssl.pc.in
 
 PKG_SYSCONFSUBDIR=	openssl
 CONFIGURE_ARGS+=	--with-openssldir=${PKG_SYSCONFDIR}
-CONFIGURE_ARGS+=	--with-enginesdir=${PREFIX}/lib/engines
 
 OWN_DIRS=	${PKG_SYSCONFDIR}/certs ${PKG_SYSCONFDIR}/private /etc/ssl/certs
 
-# Added for 2.1.6 - remove for next stable version as it's fixed upstream
-CPPFLAGS.NetBSD+=	-D_OPENBSD_SOURCE
+INSTALLATION_DIRS+=	share/examples/openssl
+
+EGDIR=		${PREFIX}/share/examples/libressl
+CONF_FILES+=	${EGDIR}/cert.pem ${PKG_SYSCONFDIR}/cert.pem
+CONF_FILES+=	${EGDIR}/openssl.cnf ${PKG_SYSCONFDIR}/openssl.cnf
+CONF_FILES+=	${EGDIR}/x509v3.cnf ${PKG_SYSCONFDIR}/x509v3.cnf
 
 TEST_TARGET=	check
 
 post-install:
-	${INSTALL_DATA} ${WRKSRC}/apps/openssl.cnf \
-		${DESTDIR}${PREFIX}/share/examples/openssl/openssl.cnf
+	mv ${DESTDIR}${PKG_SYSCONFDIR} ${DESTDIR}${EGDIR}
 
 .include "../../mk/bsd.pkg.mk"
