@@ -1,11 +1,10 @@
 # $NetBSD$
 
-VERSION=		2015.9
+VERSION=		2015.10
 DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		14
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/

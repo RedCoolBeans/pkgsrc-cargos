@@ -1,10 +1,9 @@
 # $NetBSD$
 
-DISTNAME=		cargos-build-essential-2015.9
+DISTNAME=		cargos-build-essential-2015.10
 CATEGORIES=		devel meta-pkgs
 MASTER_SITES=		# empty
 DISTFILES=		# empty
-PKGREVISION=		2
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://cargos.io/
