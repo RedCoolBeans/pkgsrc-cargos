@@ -2171,6 +2171,7 @@ ${GEM_LIBDIR}/spec/unit/pops/evaluator/conditionals_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/evaluator/evaluating_parser_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/evaluator/evaluator_rspec_helper.rb
 ${GEM_LIBDIR}/spec/unit/pops/evaluator/logical_ops_spec.rb
+${GEM_LIBDIR}/spec/unit/pops/evaluator/runtime3_converter_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/evaluator/string_interpolation_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/evaluator/variables_spec.rb
 ${GEM_LIBDIR}/spec/unit/pops/factory_rspec_helper.rb
