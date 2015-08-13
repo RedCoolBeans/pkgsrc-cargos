@@ -2,7 +2,7 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.7.1
+V=			1.8.0
 DISTNAME=		docker-${V}
 PKGNAME=		docker.io-${V}
 CATEGORIES=		sysutils
