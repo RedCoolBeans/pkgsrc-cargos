@@ -11,13 +11,13 @@
 name="docker"
 rcvar=$name
 command="@PREFIX@/bin/$name"
-command_args="-d"
+command_args="daemon"
 start_cmd=docker_start
 
 docker_start()
 {
 	@ECHO@ "Starting ${name}."
-	nohup ${command} ${docker_flags} ${command_args} >/dev/null 2>&1 &
+	nohup ${command} ${command_args} ${docker_flags} >/dev/null 2>&1 &
 }
 
 
