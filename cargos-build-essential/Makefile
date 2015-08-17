@@ -1,6 +1,6 @@
 # $NetBSD$
 
-DISTNAME=		cargos-build-essential-2015.10
+DISTNAME=		cargos-build-essential-2015.11
 CATEGORIES=		devel meta-pkgs
 MASTER_SITES=		# empty
 DISTFILES=		# empty
