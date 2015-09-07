@@ -2,7 +2,7 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			0.4.0
+V=			0.4.1
 DISTNAME=		docker-machine_linux-amd64
 PKGNAME=		docker-machine-${V}
 CATEGORIES=		sysutils

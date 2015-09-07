@@ -1,5 +1,5 @@
 $NetBSD$
 
-SHA1 (docker-machine_linux-amd64) = e7e0f9d93db19f21a6b8781cc55e10204372946c
-RMD160 (docker-machine_linux-amd64) = 9e0d56c9fa100ef792686fcc4e7f620813364a28
-Size (docker-machine_linux-amd64) = 12589968 bytes
+SHA1 (docker-machine_linux-amd64) = 28d2017418036a6e06514e02541fea1228a2e772
+RMD160 (docker-machine_linux-amd64) = 57965c38f065bf12e392fc7edd19625e4d13c791
+Size (docker-machine_linux-amd64) = 12592160 bytes
