@@ -1,0 +1,4 @@
+$NetBSD$
+
+SHA1 (patch-common.h) = 932a03d0e6b40b7a087cde5d72c24dc3c44dd035
+SHA1 (patch-inp.c) = 981b2b63b9b469ce8edf2ef32f19b4d1ac667432
