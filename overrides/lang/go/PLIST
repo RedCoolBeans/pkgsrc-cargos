@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.18 2015/03/10 13:11:36 jperkin Exp $
+@comment $NetBSD: PLIST,v 1.2 2015/09/26 17:37:01 bsiegert Exp $
 bin/go
 bin/gofmt
 go/AUTHORS
@@ -189,6 +189,9 @@ go/include/plan9/stdarg.h
 go/include/plan9/utf.h
 go/include/u.h
 go/include/utf.h
+go/lib/codereview/codereview.cfg
+go/lib/codereview/codereview.py
+go/lib/codereview/test.sh
 go/lib/time/README
 go/lib/time/update.bash
 go/lib/time/zoneinfo.zip
@@ -340,33 +343,9 @@ go/misc/chrome/gophertool/gopher.png
 go/misc/chrome/gophertool/manifest.json
 go/misc/chrome/gophertool/popup.html
 go/misc/chrome/gophertool/popup.js
-go/misc/dashboard/codereview/app.yaml
-go/misc/dashboard/codereview/cron.yaml
-go/misc/dashboard/codereview/dashboard/cl.go
-go/misc/dashboard/codereview/dashboard/front.go
-go/misc/dashboard/codereview/dashboard/gc.go
-go/misc/dashboard/codereview/dashboard/mail.go
-go/misc/dashboard/codereview/dashboard/people.go
-go/misc/dashboard/codereview/index.yaml
-go/misc/dashboard/codereview/queue.yaml
-go/misc/dashboard/codereview/static/gopherstamp.jpg
-go/misc/dashboard/codereview/static/icon.png
 go/misc/editors
 go/misc/git/pre-commit
 go/misc/linkcheck/linkcheck.go
-go/misc/makerelease/darwin/Distribution
-go/misc/makerelease/darwin/Resources/bg.png
-go/misc/makerelease/darwin/etc/paths.d/go
-go/misc/makerelease/darwin/scripts/postinstall
-go/misc/makerelease/darwin/scripts/preinstall
-go/misc/makerelease/makerelease.go
-go/misc/makerelease/windows/LICENSE.rtf
-go/misc/makerelease/windows/README.txt
-go/misc/makerelease/windows/images/Banner.jpg
-go/misc/makerelease/windows/images/Dialog.jpg
-go/misc/makerelease/windows/images/DialogLeft.jpg
-go/misc/makerelease/windows/images/gopher.ico
-go/misc/makerelease/windows/installer.wxs
 go/misc/nacl/README
 go/misc/nacl/go_nacl_386_exec
 go/misc/nacl/go_nacl_amd64p32_exec
@@ -2570,7 +2549,6 @@ go/src/runtime/cgo/gcc_netbsd_arm.c
 go/src/runtime/cgo/gcc_openbsd_386.c
 go/src/runtime/cgo/gcc_openbsd_amd64.c
 go/src/runtime/cgo/gcc_setenv.c
-go/src/runtime/cgo/gcc_solaris_amd64.c
 go/src/runtime/cgo/gcc_util.c
 go/src/runtime/cgo/gcc_windows_386.c
 go/src/runtime/cgo/gcc_windows_amd64.c
@@ -4041,6 +4019,7 @@ go/test/fixedbugs/bug488.go
 go/test/fixedbugs/bug489.go
 go/test/fixedbugs/bug490.go
 go/test/fixedbugs/bug491.go
+go/test/fixedbugs/issue10135.go
 go/test/fixedbugs/issue1304.go
 go/test/fixedbugs/issue2615.go
 go/test/fixedbugs/issue3552.dir/one.go
