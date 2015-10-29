@@ -1,12 +1,13 @@
 $NetBSD: patch-CMakeLists.txt,v 1.1 2015/10/06 14:56:12 fhajny Exp $
 
 Backport futimens/futimes fix from master.
-
 https://github.com/ethomson/libgit2/commit/8649dfd8df4f0d840a64c1d6c5fc80b8e94a68d1
 
---- CMakeLists.txt.orig	2015-10-05 21:37:22.000000000 +0000
+Don't register zlib.pc as a pkgconfig dependency (CargOS doesn't have zlib.pc)
+
+--- CMakeLists.txt.orig
 +++ CMakeLists.txt
-@@ -19,6 +19,7 @@ CMAKE_POLICY(SET CMP0015 NEW)
+@@ -19,6 +19,7 @@
  SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
  
  INCLUDE(CheckLibraryExists)
@@ -14,15 +15,24 @@ https://github.com/ethomson/libgit2/commit/8649dfd8df4f0d840a64c1d6c5fc80b8e94a6
  INCLUDE(AddCFlagIfSupported)
  INCLUDE(FindPkgConfig)
  
-@@ -430,6 +431,11 @@ ELSE ()
+@@ -272,7 +273,7 @@
+ IF (ZLIB_FOUND)
+ 	INCLUDE_DIRECTORIES(${ZLIB_INCLUDE_DIRS})
+ 	LINK_LIBRARIES(${ZLIB_LIBRARIES})
+-	IF(APPLE OR CMAKE_SYSTEM_NAME MATCHES "FreeBSD")
++	IF(APPLE OR CMAKE_SYSTEM_NAME MATCHES "FreeBSD" OR CMAKE_SYSTEM_NAME MATCHES "Linux")
+ 		LIST(APPEND LIBGIT2_PC_LIBS "-lz")
+ 	ELSE()
+ 		SET(LIBGIT2_PC_REQUIRES "${LIBGIT2_PC_REQUIRES} zlib")
+@@ -429,6 +430,11 @@
+ 	ADD_C_FLAG_IF_SUPPORTED(-Wdeclaration-after-statement)
  	ADD_C_FLAG_IF_SUPPORTED(-Wno-unused-const-variable)
  	ADD_C_FLAG_IF_SUPPORTED(-Wno-unused-function)
- 
++
 +	CHECK_FUNCTION_EXISTS(futimens HAVE_FUTIMENS)
 +	IF (HAVE_FUTIMENS)
 +		ADD_DEFINITIONS(-DHAVE_FUTIMENS)
 +	ENDIF ()
-+
+ 
  	IF (APPLE) # Apple deprecated OpenSSL
  		ADD_C_FLAG_IF_SUPPORTED(-Wno-deprecated-declarations)
- 	ENDIF()

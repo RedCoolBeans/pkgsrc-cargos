@@ -4,9 +4,9 @@ Backport futimens/futimes fix from master.
 
 https://github.com/ethomson/libgit2/commit/8649dfd8df4f0d840a64c1d6c5fc80b8e94a68d1
 
---- src/unix/posix.h.orig	2015-10-05 21:37:22.000000000 +0000
+--- src/unix/posix.h.orig
 +++ src/unix/posix.h
-@@ -22,7 +22,6 @@ typedef int GIT_SOCKET;
+@@ -22,7 +22,6 @@
  #define p_stat(p,b) stat(p, b)
  
  #define p_utimes(f, t) utimes(f, t)
@@ -14,10 +14,11 @@ https://github.com/ethomson/libgit2/commit/8649dfd8df4f0d840a64c1d6c5fc80b8e94a6
  
  #define p_readlink(a, b, c) readlink(a, b, c)
  #define p_symlink(o,n) symlink(o, n)
-@@ -53,4 +52,18 @@ extern char *p_realpath(const char *, ch
+@@ -52,5 +51,19 @@
+ 
  #define p_localtime_r(c, r) localtime_r(c, r)
  #define p_gmtime_r(c, r) gmtime_r(c, r)
- 
++
 +#ifdef HAVE_FUTIMENS
 +GIT_INLINE(int) p_futimes(int f, const struct timeval t[2])
 +{
@@ -31,5 +32,5 @@ https://github.com/ethomson/libgit2/commit/8649dfd8df4f0d840a64c1d6c5fc80b8e94a6
 +#else
 +# define p_futimes futimes
 +#endif
-+
+ 
  #endif

@@ -3,5 +3,5 @@ $NetBSD: distinfo,v 1.4 2015/10/06 14:56:12 fhajny Exp $
 SHA1 (libgit2-0.23.3.tar.gz) = 1e85799534f1431dfb7858d7b67deca4ff86cc2a
 RMD160 (libgit2-0.23.3.tar.gz) = 9a0818ba91082a89a1a702872bc706d9900655fd
 Size (libgit2-0.23.3.tar.gz) = 3718675 bytes
-SHA1 (patch-CMakeLists.txt) = a4b8742e51bf2733aa25044d3f3fa73ca944693c
-SHA1 (patch-src_unix_posix.h) = 01ee06606bf7c01f3c17ab4ee56d37b9af6183aa
+SHA1 (patch-CMakeLists.txt) = 47ae2e021e6ebc3b70d81c8a25e341b13fc9bcd6
+SHA1 (patch-src_unix_posix.h) = d024b9c8fccb017b3e3a75f26b3417a9d5e228fe
