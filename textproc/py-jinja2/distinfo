@@ -1,0 +1,5 @@
+$NetBSD: distinfo,v 1.9 2014/06/09 12:36:51 wiz Exp $
+
+SHA1 (Jinja2-2.7.3.tar.gz) = 25ab3881f0c1adfcf79053b58de829c5ae65d3ac
+RMD160 (Jinja2-2.7.3.tar.gz) = e84a4c27dfb4cdd58c4f9625fcc48b0851a2b5c9
+Size (Jinja2-2.7.3.tar.gz) = 378470 bytes

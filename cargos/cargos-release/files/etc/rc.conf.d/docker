@@ -1,0 +1,5 @@
+# @PKGNAME@
+# @EGDIR@/etc/rc.conf.d/docker
+
+docker=${docker:=YES}
+docker_flags="${docker_flags:=-G docker --icc=false --selinux-enabled -s overlay}"

@@ -1,0 +1,19 @@
+$NetBSD: patch-ab,v 1.7 2014/12/30 14:47:25 wiz Exp $
+
+--- configure.orig	2014-12-19 20:04:31.000000000 +0000
++++ configure
+@@ -830,10 +830,10 @@ fi
+ 
+ 
+ 
+-ACLOCAL="./missing aclocal"
+-AUTOCONF="./missing autoconf"
+-AUTOMAKE="./missing automake"
+-AUTOHEADER="./missing autoheader"
++ACLOCAL="aclocal"
++AUTOCONF="autoconf"
++AUTOMAKE="automake"
++AUTOHEADER="autoheader"
+ 
+ 
+ 

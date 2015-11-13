@@ -1,0 +1,120 @@
+#!/usr/bin/env bash
+#
+# Copyright (c) 2015 Red Cool Beans
+#
+# Permission to use, copy, modify, and distribute this software for any
+# purpose with or without fee is hereby granted, provided that the above
+# copyright notice and this permission notice appear in all copies.
+#
+# THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+# WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+# ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+# WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+# ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+# OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+#
+# cargos-smit: CargOS releng helper
+# Author: Antoine Jacoutot <antoine@redcoolbeans.com>
+
+# XXX TODO
+# trap and better error catching and reporting
+
+# XXX PKG
+# etcd? sysstat? util-linux?
+# add-ons: hardware (OPT)
+#   sysutils/smartmontools, sysutils/ups-nut-snmp, sysutils/ups-nut-usb
+# add-ons: misc (OPT)
+#   databases/mysql55-server, databases/openldap-server, databases/p5-DBD-mysql,
+#   databases/postgresql93-server, devel/git-svn, devel/py-pip, devel/subversion,
+#   emulators/qemu, lang/lua52, meta-pkgs/php54-extensions, net/bind99,
+#   net/isc-dhcpd4, net/jwhois, net/nmap, net/nsd, net/openvpn, net/unbound,
+#   security/clamav, sysutils/libvirt, sysutils/monit, www/apache22, www/nginx,
+#   www/varnish
+
+# we want to ensure busybox tools are found first
+PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/pkg/sbin:/usr/pkg/bin
+
+PKGSRCDIR=$(bmake -DBSD_PKG_MK -f /usr/pkg/etc/mk.conf -V PKGSRCDIR)
+
+getpkglist()
+{
+	# bootstrap (REQ)
+	echo "
+pkgtools/pkg_install
+pkgtools/bootstrap-mk-files
+devel/bmake
+lang/gcc49-libs
+"
+	# CargOS (REQ)
+	echo "
+cargos/cargos-build-essential
+cargos/cargos-release
+devel/libelf
+sysutils/grub2
+"
+	# cargos-smit (OPT)
+	echo "
+archivers/gtar
+archivers/xz
+devel/nbpatch
+net/rsync
+pkgtools/pkg_summary-utils
+"
+	# core tools (OPT)
+	echo "
+archivers/bzip2
+archivers/gzip
+devel/diffutils
+devel/patch
+lang/gawk
+sysutils/coreutils
+sysutils/findutils
+textproc/gsed
+"
+	# add-ons: base (OPT)
+	echo "
+cargos/docker-compose
+cargos/docker-machine
+editors/mg
+editors/vim
+misc/tmux
+net/tcpdump
+security/sudo
+shells/mksh
+www/links
+"
+	# add-ons: devops (OPT)
+	# no sysutils/ansible because it's agentless (only requires python)
+	echo "
+sysutils/puppet
+sysutils/salt
+"
+	# add-ons: misc (OPT)
+	echo "
+devel/libgit2
+lang/go
+www/nginx
+"
+}
+
+prerr()
+{
+	echo "!!! ${0##*/}: ${@}"
+}
+
+_pkg="$(getpkglist)"
+
+for _p in ${_pkg}; do
+	if [[ ! -d ${PKGSRCDIR}/${_p} ]]; then
+		prerr "${_p} does not exist"
+	fi
+done
+
+for _p in ${_pkg}; do \
+	cd ${PKGSRCDIR}/${_p} && \
+		bmake ${_bmake_env} \
+		ALLOW_VULNERABLE_PACKAGES=yes \
+		SKIP_LICENSE_CHECK=yes package-install || \
+		_ERR="${_p} ${_ERR}"
+done

@@ -1,0 +1,17 @@
+$NetBSD: patch-builtins_ulimit.def,v 1.2 2015/03/07 22:40:48 rodent Exp $
+
+Add support for the "number of threads" ulimit that appeared
+in NetBSD 6.99.x.
+--- builtins/ulimit.def.orig	2013-11-01 01:46:06.000000000 +0000
++++ builtins/ulimit.def
+@@ -143,6 +143,10 @@ extern int errno;
+ #  define RLIMIT_FILESIZE	256
+ #endif
+ 
++#ifdef RLIMIT_NTHR
++#  define RLIMIT_PTHREAD	RLIMIT_NTHR
++#endif
++
+ #define RLIMIT_PIPESIZE	257
+ 
+ #ifdef RLIMIT_NOFILE

@@ -1,0 +1,7 @@
+$NetBSD: distinfo,v 1.27 2014/10/01 08:50:33 obache Exp $
+
+SHA1 (pkg-config-0.28.tar.gz) = 71853779b12f958777bffcb8ca6d849b4d3bed46
+RMD160 (pkg-config-0.28.tar.gz) = 233f0b667cfb8f2e6a5647984d6389a770132173
+Size (pkg-config-0.28.tar.gz) = 1931203 bytes
+SHA1 (patch-configure) = 286dcc405ae8f4d4c6e8598960ed03ba5822dfb1
+SHA1 (patch-glib_glib_gtimer.c) = abd8b5fa7d3a748385b91d47728531da37e1b4e5

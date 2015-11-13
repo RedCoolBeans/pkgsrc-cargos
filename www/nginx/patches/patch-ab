@@ -1,0 +1,16 @@
+$NetBSD: patch-ab,v 1.2 2014/04/27 11:05:45 rodent Exp $
+
+Workaround for /bin/sh bug on NetBSD
+
+--- auto/install.orig	2014-04-24 12:52:24.000000000 +0000
++++ auto/install
+@@ -141,9 +141,6 @@ install:	$NGX_OBJS${ngx_dirsep}nginx${ng
+ 		|| cp conf/nginx.conf '\$(DESTDIR)$NGX_CONF_PATH'
+ 	cp conf/nginx.conf '\$(DESTDIR)$NGX_CONF_PREFIX/nginx.conf.default'
+ 
+-	test -d '\$(DESTDIR)`dirname "$NGX_PID_PATH"`' \
+-		|| mkdir -p '\$(DESTDIR)`dirname "$NGX_PID_PATH"`'
+-
+ 	test -d '\$(DESTDIR)`dirname "$NGX_HTTP_LOG_PATH"`' || \
+ 		mkdir -p '\$(DESTDIR)`dirname "$NGX_HTTP_LOG_PATH"`'
+ 

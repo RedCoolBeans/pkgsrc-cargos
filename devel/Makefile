@@ -1,0 +1,61 @@
+# $NetBSD$
+#
+
+COMMENT=	Development utilities
+
+SUBDIR+=	autoconf
+SUBDIR+=	bison
+SUBDIR+=	bmake
+SUBDIR+=	bmkdep
+SUBDIR+=	cmake
+SUBDIR+=	diffutils
+SUBDIR+=	flex
+SUBDIR+=	gettext
+SUBDIR+=	gettext-asprintf
+SUBDIR+=	gettext-lib
+SUBDIR+=	gettext-tools
+SUBDIR+=	git
+SUBDIR+=	git-base
+SUBDIR+=	git-docs
+SUBDIR+=	git-gitk
+SUBDIR+=	gmake
+SUBDIR+=	gmp
+SUBDIR+=	gtexinfo
+SUBDIR+=	hoe
+SUBDIR+=	libelf
+SUBDIR+=	libevent
+SUBDIR+=	libexecinfo
+SUBDIR+=	libffi
+SUBDIR+=	libgetopt
+SUBDIR+=	libgit2
+SUBDIR+=	libidn
+SUBDIR+=	libtool
+SUBDIR+=	libtool-base
+SUBDIR+=	libuuid
+SUBDIR+=	m4
+SUBDIR+=	mk-configure
+SUBDIR+=	nbpatch
+SUBDIR+=	ncurses
+SUBDIR+=	p5-Error
+SUBDIR+=	p5-IO-CaptureOutput
+SUBDIR+=	p5-PathTools
+SUBDIR+=	p5-Sub-Uplevel
+SUBDIR+=	p5-Test-Exception
+SUBDIR+=	p5-Test-Simple
+SUBDIR+=	p5-Test-Warn
+SUBDIR+=	p5-gettext
+SUBDIR+=	patch
+SUBDIR+=	pcre
+SUBDIR+=	pipestatus
+SUBDIR+=	pkg-config
+SUBDIR+=	py-msgpack
+SUBDIR+=	py-requests
+SUBDIR+=	py-setuptools
+SUBDIR+=	readline
+SUBDIR+=	ruby-io-console
+SUBDIR+=	ruby-minitest
+SUBDIR+=	scmcvs
+SUBDIR+=	swig
+SUBDIR+=	zlib
+
+.include "../mk/misc/category.mk"
