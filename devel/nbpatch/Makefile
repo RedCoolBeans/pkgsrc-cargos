@@ -5,7 +5,6 @@ DISTNAME=	nbpatch-20151107
 CATEGORIES=	devel
 MASTER_SITES=	# empty
 DISTFILES=	# empty
-PKGREVISION=	1
 
 MAINTAINER=	joerg@NetBSD.org
 HOMEPAGE=	http://www.pkgsrc.org/
