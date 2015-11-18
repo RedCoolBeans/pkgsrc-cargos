@@ -1,6 +1,7 @@
 # $NetBSD$
 
 DISTNAME=		cargos-build-essential-2015.11
+PKGREVISION=		1
 CATEGORIES=		devel meta-pkgs
 MASTER_SITES=		# empty
 DISTFILES=		# empty
@@ -15,7 +16,6 @@ META_PACKAGE=		yes
 # pkgsrc
 DEPENDS +=		bmake-[0-9]*:../../devel/bmake
 DEPENDS +=		bootstrap-mk-files-[0-9]*:../../pkgtools/bootstrap-mk-files
-DEPENDS +=		cvs-[0-9]*:../../devel/scmcvs
 DEPENDS +=		digest-[0-9]*:../../pkgtools/digest
 DEPENDS +=		file-[0-9]*:../../sysutils/file
 DEPENDS +=		gcc49>=4.9:../../lang/gcc49

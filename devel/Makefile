@@ -54,7 +54,6 @@ SUBDIR+=	py-setuptools
 SUBDIR+=	readline
 SUBDIR+=	ruby-io-console
 SUBDIR+=	ruby-minitest
-SUBDIR+=	scmcvs
 SUBDIR+=	swig
 SUBDIR+=	zlib
 
