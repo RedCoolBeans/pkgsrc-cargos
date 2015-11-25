@@ -1,2 +1,17 @@
 @comment $NetBSD$
 bin/docker-machine
+bin/docker-machine-driver-amazonec2
+bin/docker-machine-driver-azure
+bin/docker-machine-driver-digitalocean
+bin/docker-machine-driver-exoscale
+bin/docker-machine-driver-generic
+bin/docker-machine-driver-google
+bin/docker-machine-driver-hyperv
+bin/docker-machine-driver-none
+bin/docker-machine-driver-openstack
+bin/docker-machine-driver-rackspace
+bin/docker-machine-driver-softlayer
+bin/docker-machine-driver-virtualbox
+bin/docker-machine-driver-vmwarefusion
+bin/docker-machine-driver-vmwarevcloudair
+bin/docker-machine-driver-vmwarevsphere
