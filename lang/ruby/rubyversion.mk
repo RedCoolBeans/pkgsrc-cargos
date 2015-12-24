@@ -235,7 +235,7 @@ RUBY22_VERSION=		2.2.3
 # patch
 RUBY18_PATCHLEVEL=	pl374
 RUBY193_PATCHLEVEL=	p551
-RUBY200_PATCHLEVEL=	p647
+RUBY200_PATCHLEVEL=	p648
 
 # current API compatible version; used for version of shared library
 RUBY18_API_VERSION=	1.8.7
