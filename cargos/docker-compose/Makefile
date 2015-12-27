@@ -2,7 +2,7 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.5.1
+V=			1.5.2
 DISTNAME=		docker-compose-Linux-x86_64
 PKGNAME=		docker-compose-${V}
 CATEGORIES=		sysutils
