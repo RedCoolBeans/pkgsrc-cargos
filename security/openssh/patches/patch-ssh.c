@@ -1,10 +1,6 @@
-$NetBSD: patch-ssh.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
-
-Interix support
-
---- ssh.c.orig	2015-07-01 02:35:31.000000000 +0000
+--- ssh.c.orig
 +++ ssh.c
-@@ -1083,7 +1083,7 @@ main(int ac, char **av)
+@@ -1084,7 +1084,7 @@
  		    "disabling");
  		options.update_hostkeys = 0;
  	}
@@ -13,3 +9,13 @@ Interix support
  	if (original_effective_uid != 0)
  		options.use_privileged_port = 0;
  #endif
+@@ -1931,9 +1931,6 @@
+ 		} else
+ 			fork_postauth();
+ 	}
+-
+-	if (options.use_roaming)
+-		request_roaming();
+ 
+ 	return client_loop(tty_flag, tty_flag ?
+ 	    options.escape_char : SSH_ESCAPECHAR_NONE, id);
