@@ -1,4 +1,4 @@
-@comment $NetBSD$
+@comment $NetBSD: PLIST,v 1.23 2015/02/13 13:55:58 taca Exp $
 bin/facter${RUBY_SUFFIX}
 ${GEM_HOME}/cache/${GEM_NAME}.gem
 ${GEM_LIBDIR}/COMMITTERS.md
@@ -215,8 +215,6 @@ ${GEM_LIBDIR}/spec/fixtures/ifconfig/linux_ifconfig_all_with_multiple_interfaces
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/linux_ifconfig_no_addr
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/linux_ifconfig_no_mac
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/linux_ifconfig_venet
-${GEM_LIBDIR}/spec/fixtures/ifconfig/net_route_all_with_multiple_interfaces
-${GEM_LIBDIR}/spec/fixtures/ifconfig/net_route_net_tools_1.60.txt
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/open_solaris_10
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/open_solaris_b132
 ${GEM_LIBDIR}/spec/fixtures/ifconfig/openbsd_bridge_rules
@@ -254,10 +252,6 @@ ${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/ifconfig_multiple_127_addresses.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/ifconfig_net_tools_1.60.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/ifconfig_non_english_locale.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/ifconfig_ubuntu_1204.txt
-${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/net_route_multiple_127_addresses.txt
-${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/net_route_net_tools_1.60.txt
-${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/net_route_non_english_locale.txt
-${GEM_LIBDIR}/spec/fixtures/unit/ipaddress/net_route_ubuntu_1204.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/kernelrelease/openbsd-5.3
 ${GEM_LIBDIR}/spec/fixtures/unit/kernelrelease/openbsd-5.3-current
 ${GEM_LIBDIR}/spec/fixtures/unit/memory/aix-svmon
@@ -274,14 +268,10 @@ ${GEM_LIBDIR}/spec/fixtures/unit/memory/solaris-prtconf
 ${GEM_LIBDIR}/spec/fixtures/unit/memory/solaris-swap_l-multiple
 ${GEM_LIBDIR}/spec/fixtures/unit/memory/solaris-swap_l-single
 ${GEM_LIBDIR}/spec/fixtures/unit/memory/solaris-vmstat
+${GEM_LIBDIR}/spec/fixtures/unit/netmask/darwin_10_8_5.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/netmask/ifconfig_aix_7.txt
-${GEM_LIBDIR}/spec/fixtures/unit/netmask/ifconfig_darwin_10_8_5.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/netmask/ifconfig_net_tools_1.60.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/netmask/ifconfig_ubuntu_1204.txt
-${GEM_LIBDIR}/spec/fixtures/unit/netmask/net_route_multiple_127_addresses.txt
-${GEM_LIBDIR}/spec/fixtures/unit/netmask/net_route_net_tools_1.60.txt
-${GEM_LIBDIR}/spec/fixtures/unit/netmask/net_route_non_english_locale.txt
-${GEM_LIBDIR}/spec/fixtures/unit/netmask/net_route_ubuntu_1204.txt
 ${GEM_LIBDIR}/spec/fixtures/unit/processors/os/darwin-system-profiler
 ${GEM_LIBDIR}/spec/fixtures/unit/selinux/selinux_sestatus
 ${GEM_LIBDIR}/spec/fixtures/unit/selinux/selinux_sestatus2
@@ -372,7 +362,6 @@ ${GEM_LIBDIR}/spec/fixtures/unit/zpool_version/solaris_11
 ${GEM_LIBDIR}/spec/fixtures/unit/zpool_version/zfsonlinux_0.6.1
 ${GEM_LIBDIR}/spec/fixtures/virtual/proc_1_cgroup/in_a_container
 ${GEM_LIBDIR}/spec/fixtures/virtual/proc_1_cgroup/in_a_docker_container
-${GEM_LIBDIR}/spec/fixtures/virtual/proc_1_cgroup/in_a_docker_container_with_systemd_slices
 ${GEM_LIBDIR}/spec/fixtures/virtual/proc_1_cgroup/not_in_a_container
 ${GEM_LIBDIR}/spec/fixtures/virtual/proc_self_status/vserver_2_1/guest
 ${GEM_LIBDIR}/spec/fixtures/virtual/proc_self_status/vserver_2_1/host
