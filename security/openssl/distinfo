@@ -1,5 +1,5 @@
 $NetBSD$
 
-SHA1 (libressl-2.2.5.tar.gz) = 893c60c9500a6e0ab6cdb50668b290313403ba77
-RMD160 (libressl-2.2.5.tar.gz) = 94cd17498bd449da6210de34a190d18b82ce5083
-Size (libressl-2.2.5.tar.gz) = 2966527 bytes
+SHA1 (libressl-2.2.6.tar.gz) = 7dd05c3318ef0f9f15d43816cd892d212ca92e3c
+RMD160 (libressl-2.2.6.tar.gz) = ca39eba38a33ec61ea5616699de16f79a1c82a70
+Size (libressl-2.2.6.tar.gz) = 2965531 bytes
