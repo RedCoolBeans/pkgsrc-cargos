@@ -1,5 +1,5 @@
 $NetBSD$
 
-SHA1 (docker-1.9.1) = 424920b09c24d7c7876cc35d8aabd2aa52b8e39e
-RMD160 (docker-1.9.1) = fe754a694fbc2b344de1d2146cd053a2cd8cfe9b
-Size (docker-1.9.1) = 30222575 bytes
+SHA1 (docker-1.10.0) = 754237615775d8b96c6c3dcdf979f400ac64c7c7
+RMD160 (docker-1.10.0) = 63cd856aa7ad3780b534a28d00ff2bd1cf377ec7
+Size (docker-1.10.0) = 34865274 bytes
