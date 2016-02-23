@@ -1,0 +1,3 @@
+PaX control program for using the PT_PAX_FLAGS marking paxctl may be used
+to control PaX flags on a per-binary basis.
+PaX is a set of kernel security patches to enhance a system's security.
