@@ -1,6 +1,6 @@
 # $NetBSD$
 
-VERSION=		2016.04
+VERSION=		2016.05
 DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
