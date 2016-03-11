@@ -1,10 +1,9 @@
 # $NetBSD: Makefile,v 1.230.2.2 2015/08/01 08:56:59 tron Exp $
 
-DISTNAME=		openssh-7.0p1
-PKGNAME=		openssh-7.0.1
+DISTNAME=		openssh-7.2p2
+PKGNAME=		openssh-7.2.2
 CATEGORIES=		security
 MASTER_SITES=		${MASTER_SITE_OPENBSD:=OpenSSH/portable/}
-PKGREVISION=		3
 
 MAINTAINER=		pkgsrc-users@NetBSD.org
 HOMEPAGE=		http://www.openssh.com/
