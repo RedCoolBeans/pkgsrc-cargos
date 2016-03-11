@@ -1,11 +1,6 @@
-$NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
-
-* Interix support
-* Revive tcp_wrappers support.
-
---- sshd.c.orig
-+++ sshd.c
-@@ -126,6 +126,13 @@
+--- /home/cargos/pkgsrc-work/security/openssh/work/openssh-7.2p2/sshd.c.orig
++++ /home/cargos/pkgsrc-work/security/openssh/work/openssh-7.2p2/sshd.c
+@@ -125,6 +125,13 @@
  #include "version.h"
  #include "ssherr.h"
  
@@ -19,7 +14,7 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  #ifndef O_NOCTTY
  #define O_NOCTTY	0
  #endif
-@@ -237,7 +244,11 @@
+@@ -236,7 +243,11 @@
  int startup_pipe;		/* in child */
  
  /* variables used for privilege separation */
@@ -31,32 +26,32 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  struct monitor *pmonitor = NULL;
  int privsep_is_preauth = 1;
  
-@@ -644,10 +655,15 @@
- 	/* XXX not ready, too heavy after chroot */
- 	do_setusercontext(privsep_pw);
- #else
+@@ -632,7 +643,7 @@
+ 	demote_sensitive_data();
+ 
+ 	/* Demote the child */
+-	if (getuid() == 0 || geteuid() == 0) {
++	if (getuid() == ROOTUID || geteuid() == ROOTUID) {
+ 		/* Change our root directory */
+ 		if (chroot(_PATH_PRIVSEP_CHROOT_DIR) == -1)
+ 			fatal("chroot(\"%s\"): %s", _PATH_PRIVSEP_CHROOT_DIR,
+@@ -643,10 +654,15 @@
+ 		/* Drop our privileges */
+ 		debug3("privsep user:group %u:%u", (u_int)privsep_pw->pw_uid,
+ 		    (u_int)privsep_pw->pw_gid);
 +#ifdef HAVE_INTERIX
-+	if (setuser(privsep_pw->pw_name, NULL, SU_COMPLETE))
-+		fatal("setuser: %.100s", strerror(errno));
++		if (setuser(privsep_pw->pw_name, NULL, SU_COMPLETE))
++			fatal("setuser: %.100s", strerror(errno));
 +#else
- 	gidset[0] = privsep_pw->pw_gid;
- 	if (setgroups(1, gidset) < 0)
- 		fatal("setgroups: %.100s", strerror(errno));
- 	permanently_set_uid(privsep_pw);
+ 		gidset[0] = privsep_pw->pw_gid;
+ 		if (setgroups(1, gidset) < 0)
+ 			fatal("setgroups: %.100s", strerror(errno));
+ 		permanently_set_uid(privsep_pw);
 +#endif /* HAVE_INTERIX */
- #endif
+ 	}
  }
  
-@@ -715,7 +731,7 @@
- 		set_log_handler(mm_log_handler, pmonitor);
- 
- 		/* Demote the child */
--		if (getuid() == 0 || geteuid() == 0)
-+		if (getuid() == ROOTUID || geteuid() == ROOTUID)
- 			privsep_preauth_child();
- 		setproctitle("%s", "[net]");
- 		if (box != NULL)
-@@ -733,7 +749,7 @@
+@@ -730,7 +746,7 @@
  #ifdef DISABLE_FD_PASSING
  	if (1) {
  #else
@@ -65,7 +60,7 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  #endif
  		/* File descriptor passing is broken or root login */
  		use_privsep = 0;
-@@ -1489,8 +1505,10 @@
+@@ -1497,8 +1513,10 @@
  	av = saved_argv;
  #endif
  
@@ -77,7 +72,7 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  
  	/* Ensure that fds 0, 1 and 2 are open or directed to /dev/null */
  	sanitise_stdfd();
-@@ -1919,7 +1937,7 @@
+@@ -1925,7 +1943,7 @@
  		    (st.st_uid != getuid () ||
  		    (st.st_mode & (S_IWGRP|S_IWOTH)) != 0))
  #else
@@ -86,7 +81,7 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  #endif
  			fatal("%s must be owned by root and not group or "
  			    "world-writable.", _PATH_PRIVSEP_CHROOT_DIR);
-@@ -1942,8 +1960,10 @@
+@@ -1948,8 +1966,10 @@
  	 * to create a file, and we can't control the code in every
  	 * module which might be used).
  	 */
@@ -97,7 +92,7 @@ $NetBSD: patch-sshd.c,v 1.3.12.1 2015/07/14 22:03:39 tron Exp $
  
  	if (rexec_flag) {
  		rexec_argv = xcalloc(rexec_argc + 2, sizeof(char *));
-@@ -2138,6 +2158,25 @@
+@@ -2144,6 +2164,25 @@
  #ifdef SSH_AUDIT_EVENTS
  	audit_connection_from(remote_ip, remote_port);
  #endif
