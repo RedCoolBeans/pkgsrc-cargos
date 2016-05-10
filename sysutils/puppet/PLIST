@@ -116,7 +116,6 @@ ${GEM_LIBDIR}/ext/osx/preflight.erb
 ${GEM_LIBDIR}/ext/osx/prototype.plist.erb
 ${GEM_LIBDIR}/ext/project_data.yaml
 ${GEM_LIBDIR}/ext/puppet-load.rb
-${GEM_LIBDIR}/ext/puppet-nm-dispatcher
 ${GEM_LIBDIR}/ext/puppet-test
 ${GEM_LIBDIR}/ext/puppetlisten/puppetlisten.rb
 ${GEM_LIBDIR}/ext/puppetlisten/puppetrun.rb
@@ -1477,6 +1476,7 @@ ${GEM_LIBDIR}/spec/fixtures/integration/provider/cron/crontab/unspecialized
 ${GEM_LIBDIR}/spec/fixtures/integration/provider/mailalias/aliases/test1
 ${GEM_LIBDIR}/spec/fixtures/java.tgz
 ${GEM_LIBDIR}/spec/fixtures/manifests/site.pp
+${GEM_LIBDIR}/spec/fixtures/module.tar.gz
 ${GEM_LIBDIR}/spec/fixtures/releases/jamtur01-apache/Modulefile
 ${GEM_LIBDIR}/spec/fixtures/releases/jamtur01-apache/files/httpd
 ${GEM_LIBDIR}/spec/fixtures/releases/jamtur01-apache/files/test.vhost
@@ -1706,6 +1706,7 @@ ${GEM_LIBDIR}/spec/integration/indirector/facts/facter_spec.rb
 ${GEM_LIBDIR}/spec/integration/indirector/file_content/file_server_spec.rb
 ${GEM_LIBDIR}/spec/integration/indirector/file_metadata/file_server_spec.rb
 ${GEM_LIBDIR}/spec/integration/indirector/node/ldap_spec.rb
+${GEM_LIBDIR}/spec/integration/module_tool/tar/mini_spec.rb
 ${GEM_LIBDIR}/spec/integration/network/authconfig_spec.rb
 ${GEM_LIBDIR}/spec/integration/network/formats_spec.rb
 ${GEM_LIBDIR}/spec/integration/node/environment_spec.rb
@@ -1716,6 +1717,7 @@ ${GEM_LIBDIR}/spec/integration/parser/class_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/collector_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/compiler_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/conditionals_spec.rb
+${GEM_LIBDIR}/spec/integration/parser/dynamic_scoping_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/environment_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/functions/require_spec.rb
 ${GEM_LIBDIR}/spec/integration/parser/future_compiler_spec.rb
