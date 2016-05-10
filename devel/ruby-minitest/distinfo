@@ -2,4 +2,5 @@ $NetBSD: distinfo,v 1.6 2015/06/03 14:48:36 taca Exp $
 
 SHA1 (minitest-5.7.0.gem) = a7462bef2abbdf05aab0e5b2244ccd5c5441223a
 RMD160 (minitest-5.7.0.gem) = e92a7439cb3830beb83d5fe1d8b02fbd2c34205b
+SHA512 (minitest-5.7.0.gem) = 22eb2a37bb2f00e1798939d88bdeb8929e6ebd514ba3397e76b78873da7a2d3a5ad6b2889b8d21cb3f75d0211c485e87703396b9d038c05c2b52ff18557552de
 Size (minitest-5.7.0.gem) = 71680 bytes

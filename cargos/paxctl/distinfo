@@ -2,6 +2,7 @@ $NetBSD: distinfo,v 1.7 2014/12/01 10:57:02 wiz Exp $
 
 SHA1 (paxctl-0.9.tar.gz) = 68c12730ef1c3c22194ee78b955c788e596ba92c
 RMD160 (paxctl-0.9.tar.gz) = fd4476e32c09b5aa5045261948bb083b10c6e103
+SHA512 (paxctl-0.9.tar.gz) = 4048544bd05ed6eb37866034ade8482b8d017110ed9a639f220e8d2e32bb3dfb6c913a986c8fd41829e88efa793f7552eaa2a6d6b2af533c44a5754a5ab8650f
 Size (paxctl-0.9.tar.gz) = 8109 bytes
 SHA1 (patch-aa) = 5967a6ec48a7a69078fc1e0fca26645fd9870f77
 SHA1 (patch-ab) = 8591f15916b47d3569c79639e6ee9aa82df07f6a
