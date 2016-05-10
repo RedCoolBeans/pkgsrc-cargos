@@ -5,7 +5,7 @@ CargOS specific pkgsrc packages and overrides
 ### Building packages
 Become root then:
 ```sh
-CARGOS_RELEASE=2016.03
+CARGOS_RELEASE=2016.06
 pkgin -y in cargos-build-essential
 mkdir -p /home/cargos && cd /home/cargos
 git clone https://github.com/RedCoolBeans/pkgsrc-cargos.git pkgsrc
