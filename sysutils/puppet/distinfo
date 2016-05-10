@@ -1,8 +1,8 @@
 $NetBSD$
 
-SHA1 (puppet-3.8.5.gem) = 7a5223d491c35a67888d65e05484038dea096233
-RMD160 (puppet-3.8.5.gem) = a957eff960da80ee16f4c6aec9c894088a62d04b
-Size (puppet-3.8.5.gem) = 2669568 bytes
+SHA1 (puppet-3.8.7.gem) = 435a077a6d550855f9e0d7f6a582dab23163802e
+RMD160 (puppet-3.8.7.gem) = 623d56c4b00d10f6b6ff9e693b754090934bf871
+Size (puppet-3.8.7.gem) = 2679296 bytes
 SHA1 (patch-lib_puppet_provider_group_busybox.rb) = 9dd632bd29e2929d6a40245b69fc34bd01c55960
 SHA1 (patch-lib_puppet_provider_package_pkgin.rb) = 0d104e0339f89a9e41fd016592b5632caf9255ff
 SHA1 (patch-lib_puppet_provider_service_bsd.rb) = cd1243a999e897814b24402fd4c69e67bec96048

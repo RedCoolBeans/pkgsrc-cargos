@@ -1,6 +1,6 @@
 $NetBSD$
 
-SHA1 (facter-2.4.5.gem) = 182ea55617f5c03104b96c7003615ca5af0f4992
-RMD160 (facter-2.4.5.gem) = 1b88d5984a922377879693c51852f3e09ba60639
-Size (facter-2.4.5.gem) = 247296 bytes
+SHA1 (facter-2.4.6.gem) = a3b757a7f6319944bdd60d50c2b44e096734f1db
+RMD160 (facter-2.4.6.gem) = c39d0821879c3062079a97e244335e01e2da267a
+Size (facter-2.4.6.gem) = 246272 bytes
 SHA1 (patch-lib_facter_operatingsystem_linux.rb) = 421555b05b284efff4908c612bfa38ce93cbabc4
