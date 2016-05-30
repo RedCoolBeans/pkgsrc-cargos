@@ -2,12 +2,12 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.10.2
+V=			1.11.1
 DISTNAME=		docker-${V}
 PKGNAME=		docker.io-${V}
 CATEGORIES=		sysutils
 MASTER_SITES=		https://get.docker.com/builds/Linux/x86_64/
-EXTRACT_SUFX=		# empty
+EXTRACT_SUFX=		.tgz
 
 MAINTAINER=		pkgsrc@cargos.io
 HOMEPAGE=		http://www.docker.com/
@@ -18,12 +18,19 @@ INSTALLATION_DIRS=	bin
 NO_BUILD=		yes
 PKG_GROUPS=		docker
 RCD_SCRIPTS=		docker
-WRKSRC=			${WRKDIR}/docker-${V}
 
 DEPENDS+=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 
+DOCKER_BINS =		docker docker-containerd docker-containerd-ctr \
+			docker-containerd-shim docker-runc
+
+# unconfuse pkgsrc otherwise the rcd script isn't installed
+post-extract:
+	mv ${WRKDIR}/docker ${WRKDIR}/docker-$V
+
 do-install:
-	${INSTALL_SCRIPT} ${WRKDIR}/${DISTNAME} \
-		${DESTDIR}${PREFIX}/bin/docker
+.for d in ${DOCKER_BINS}
+	${INSTALL_SCRIPT} ${WRKSRC}/$d ${DESTDIR}${PREFIX}/bin/
+.endfor
 
 .include "../../mk/bsd.pkg.mk"
