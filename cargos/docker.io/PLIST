@@ -1,6 +1,2 @@
 @comment $NetBSD$
 bin/docker
-bin/docker-containerd
-bin/docker-containerd-ctr
-bin/docker-containerd-shim
-bin/docker-runc
