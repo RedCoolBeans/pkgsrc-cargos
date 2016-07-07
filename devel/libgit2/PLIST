@@ -75,6 +75,6 @@ include/git2/tree.h
 include/git2/types.h
 include/git2/version.h
 lib/libgit2.so
-lib/libgit2.so.0.23.3
-lib/libgit2.so.23
+lib/libgit2.so.${PKGVERSION}
+lib/libgit2.so.24
 lib/pkgconfig/libgit2.pc
