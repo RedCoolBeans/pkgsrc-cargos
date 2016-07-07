@@ -1,0 +1,13 @@
+--- libgit2.pc.in.orig
++++ libgit2.pc.in
+@@ -6,8 +6,8 @@
+ Description: The git library, take 2
+ Version: @LIBGIT2_VERSION_STRING@
+ 
+-Libs: -L"${libdir}" -lgit2
++Libs: -L"${libdir}" -lssl -lcrypto -lssh2 -lgit2 -lz
+ Libs.private: @LIBGIT2_PC_LIBS@
+-Requires.private: @LIBGIT2_PC_REQUIRES@
++Requires.private:
+ 
+ Cflags: -I${includedir}
