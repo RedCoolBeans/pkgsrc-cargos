@@ -1,7 +1,6 @@
 # $NetBSD: Makefile,v 1.5 2015/07/26 18:06:45 nros Exp $
 
-DISTNAME=	libgit2-0.23.3
-PKGREVISION=	1
+DISTNAME=	libgit2-0.24.0
 CATEGORIES=	devel
 MASTER_SITES=	${MASTER_SITE_GITHUB:=libgit2/}
 
