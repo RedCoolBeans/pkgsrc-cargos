@@ -1,7 +1,7 @@
 # $NetBSD: Makefile,v 1.11 2015/03/23 09:14:53 nros Exp $
 #
 
-DISTNAME=	libssh2-1.6.0
+DISTNAME=	libssh2-1.7.0
 CATEGORIES=	security
 MASTER_SITES=	http://www.libssh2.org/download/
 
