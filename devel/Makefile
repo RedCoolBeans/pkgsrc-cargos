@@ -28,6 +28,7 @@ SUBDIR+=	libexecinfo
 SUBDIR+=	libffi
 SUBDIR+=	libgetopt
 SUBDIR+=	libgit2
+SUBDIR+=	libgit2-static
 SUBDIR+=	libidn
 SUBDIR+=	libtool
 SUBDIR+=	libtool-base
