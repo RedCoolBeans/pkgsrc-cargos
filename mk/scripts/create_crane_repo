@@ -1,0 +1,16 @@
+#!/bin/sh
+
+_destdir=$1
+_name=$2
+_tmpgit=/tmp/$_name
+
+if [ -d $_tmpgit ]; then
+	rm -fr $_tmpgit
+fi
+mkdir -p $_tmpgit
+
+cd $_destdir && tar cf - . | (cd $_tmpgit; tar xpf -)
+cd $_tmpgit && git init && git add . && \
+	git config --global user.email "robert@redcoolbeans.com" && \
+		git config --global user.name "Robert Nagy" && \
+		git commit -m "Initial import of $_name"
