@@ -1,16 +1,81 @@
 #!/bin/sh
 
 _destdir=$1
-_name=$2
-_tmpgit=/tmp/$_name
+_pkgname=$2
+_pkgbase=$3
+_pkgversion=$4
+_maintainer=$(echo $5 | sed -r 's/(.*) <.*/\1/')
+_email=$(echo $5 | sed -r 's/.*<(.*)>.*/\1/')
+_homepage=$6
+_depends=$7
+_tmpgit=/tmp/${_pkgname}
+_wfile=$(mktemp)
 
-if [ -d $_tmpgit ]; then
-	rm -fr $_tmpgit
+_wantlib() {
+	local _f=${1}
+
+	case "$(uname -s)"
+	in
+		Linux)
+			_libdirs="/lib /lib64 /usr/lib /usr/X11R6/lib"
+			_grep="awk '{print \$3}' | grep -v '^$'"
+			;;
+		*)
+			exit 1
+			;;
+	esac
+
+	ldd ${_f} | eval ${_grep} | {
+		while read _lib; do
+			_lib=$(basename ${_lib})
+			_local=0
+			for _ld in ${_libdirs}; do
+				[ -e "${_ld}/${_lib}" ] && _local=1
+			done
+			[ ${_local} -eq 0 ] && echo "${_lib%%.*}"
+		done;
+	}
+}
+
+_files=$(find ${_destdir} -type f -print0)
+
+for _f in ${_files}; do
+	_wantlib ${_f} >> ${_wfile}
+done
+
+for _d in ${_depends}; do
+	echo "${_d}" | cut -d ':' -f2 | xargs basename >> ${_wfile}
+done
+
+if [ -d ${_tmpgit} ]; then
+	rm -fr ${_tmpgit}
 fi
-mkdir -p $_tmpgit
+mkdir -p ${_tmpgit}
 
-cd $_destdir && tar cf - . | (cd $_tmpgit; tar xpf -)
-cd $_tmpgit && git init && git add . && \
-	git config --global user.email "robert@redcoolbeans.com" && \
-		git config --global user.name "Robert Nagy" && \
-		git commit -m "Initial import of $_name"
+cat << EOF >${_tmpgit}/MANIFEST.yaml
+---
+  name: '${_pkgbase}'
+  version: '${_pkgversion}'
+  maintainer: '${_maintainer}'
+  email: '${_email}'
+  homepage: '${_homepage}'
+  dependencies:
+$(for _w in $(cat ${_wfile} | sort -u); do
+	printf "    - name: '${_w}'\n      repo: ''\n"
+done)
+  contents:
+$(for _f in $(find ${_destdir} -type f); do
+	_path=$(echo ${_f} | sed "s,${_destdir},,g")
+	_sum=$(sha256sum ${_f} | cut -d ' ' -f1)
+	_mode=$(/usr/pkg/bin/perl -e 'printf "%04o", (stat)[2] & 07777, $_ for @ARGV' ${_f})
+	printf "    - path: ${_path}\n      sha256: ${_sum}\n      mode: ${_mode}\n"
+done)
+EOF
+
+rm -rf ${_wfile}
+
+cd ${_destdir} && tar cf - . | (cd ${_tmpgit}; tar xpf -)
+cd ${_tmpgit} && git init && git add . && \
+	git config user.email "${_email}" && \
+		git config user.name "${_maintainer}" && \
+		git commit -m "Initial import of ${_pkgname}"

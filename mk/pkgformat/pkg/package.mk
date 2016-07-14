@@ -81,10 +81,11 @@ ${STAGE_PKGFILE}: ${_CONTENTS_TARGETS}
 .if !empty(CRANE)
 	@${STEP_MSG} "Creating crane repository for ${PKGNAME}"
 	${RUN} ${_ULIMIT_CMD} tmpname=${.TARGET:S,${PKG_SUFX}$,.tmp${PKG_SUFX},};	\
-	if ${.CURDIR}/../../mk/scripts/create_crane_repo ${DESTDIR} ${PKGNAME}; then	\
-		${STEP_MSG} "Created crane repository in /tmp/${PKGNAME}";		\
-	else								\
-		exitcode=$$?; ${RM} -f "$$tmpname"; exit $$exitcode;	\
+	if ${.CURDIR}/../../mk/scripts/create_crane_repo ${DESTDIR} ${PKGNAME} 		\
+		${PKGBASE} ${PKGVERSION} "${MAINTAINER}" ${HOMEPAGE} "${DEPENDS}"; then	\
+			${STEP_MSG} "Created crane repository in /tmp/${PKGNAME}";	\
+	else										\
+		exitcode=$$?; ${RM} -f "$$tmpname"; exit $$exitcode;			\
 	fi
 .endif
 
