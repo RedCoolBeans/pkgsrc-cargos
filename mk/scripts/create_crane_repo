@@ -4,8 +4,13 @@ _destdir=$1
 _pkgname=$2
 _pkgbase=$3
 _pkgversion=$4
-_maintainer=$(echo $5 | sed -r 's/(.*) <.*/\1/')
-_email=$(echo $5 | sed -r 's/.*<(.*)>.*/\1/')
+#_maintainer=$(echo $5 | sed -r 's/(.*) <.*/\1/')
+#_email=$(echo $5 | sed -r 's/.*<(.*)>.*/\1/')
+
+# Hardcode the maintainer for now
+_maintainer="RedCoolBeans"
+_email="maintaner@redcoolbeans.com"
+
 _homepage=$6
 _depends=$7
 _tmpgit=/tmp/${_pkgname}
@@ -37,7 +42,7 @@ _wantlib() {
 	}
 }
 
-_files=$(find ${_destdir} -type f -print0)
+_files=$(find ${_destdir} -type f)
 
 for _f in ${_files}; do
 	_wantlib ${_f} >> ${_wfile}
@@ -60,7 +65,7 @@ cat << EOF >${_tmpgit}/MANIFEST.yaml
   email: '${_email}'
   homepage: '${_homepage}'
   dependencies:
-$(for _w in $(cat ${_wfile} | sort -u); do
+$(for _w in $(cat ${_wfile} | sort -u | grep -v dynamic); do
 	printf "    - name: '${_w}'\n      repo: ''\n"
 done)
   contents:
