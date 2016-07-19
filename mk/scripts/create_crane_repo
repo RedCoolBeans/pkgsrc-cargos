@@ -45,7 +45,9 @@ _wantlib() {
 _files=$(find ${_destdir} -type f)
 
 for _f in ${_files}; do
-	_wantlib ${_f} >> ${_wfile}
+	case "$(head -n 1 "${_f}")" in
+		?ELF*) _wantlib ${_f} >> ${_wfile};;
+	esac
 done
 
 for _d in ${_depends}; do
@@ -66,7 +68,7 @@ cat << EOF >${_tmpgit}/MANIFEST.yaml
   homepage: '${_homepage}'
   dependencies:
 $(for _w in $(cat ${_wfile} | sort -u | grep -v dynamic); do
-	printf "    - name: '${_w}'\n      repo: ''\n"
+	printf "    - name: '${_w}'\n      repo: 'ssh://git@gitlab.redcoolbeans.com:2222/software/'\n"
 done)
   contents:
 $(for _f in $(find ${_destdir} -type f); do
