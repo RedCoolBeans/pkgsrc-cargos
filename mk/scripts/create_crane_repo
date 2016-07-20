@@ -9,10 +9,11 @@ _pkgversion=$4
 
 # Hardcode the maintainer for now
 _maintainer="RedCoolBeans"
-_email="maintaner@redcoolbeans.com"
+_email="maintainer@redcoolbeans.com"
 
 _homepage=$6
 _depends=$7
+_pkgfile=$8
 _tmpgit=/tmp/${_pkgname}
 _wfile=$(mktemp)
 
@@ -58,6 +59,20 @@ if [ -d ${_tmpgit} ]; then
 	rm -fr ${_tmpgit}
 fi
 mkdir -p ${_tmpgit}
+
+_ptmp=$(mktemp)
+pkg_info -i ${_pkgfile} | grep '^# FILE' | grep -v rc.d > ${_ptmp}
+
+while IFS= read -r line
+do
+	_from="${_destdir}/usr/pkg/$(echo ${line} | cut -d ' ' -f5)"
+	_to="${_destdir}/usr/pkg/$(echo ${line} | cut -d ' ' -f3)"
+	_mode=$(echo ${line} | cut -d ' ' -f6)
+	_dn=$(dirname ${_to})
+	[ -d "${_dn}" ] || mkdir ${_dn}
+	install -m ${_mode} ${_from} ${_to}
+done < ${_ptmp}
+rm -f ${_ptmp}
 
 cat << EOF >${_tmpgit}/MANIFEST.yaml
 ---

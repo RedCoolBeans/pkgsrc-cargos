@@ -69,6 +69,8 @@ _PKG_ARGS_PACKAGE+=	-u ${REAL_ROOT_USER} -g ${REAL_ROOT_GROUP}
 .  endif
 .endif
 
+CRANE=1
+
 ${STAGE_PKGFILE}: ${_CONTENTS_TARGETS}
 	${RUN} ${MKDIR} ${.TARGET:H}
 	@${STEP_MSG} "Creating binary package ${.TARGET}"
@@ -82,7 +84,8 @@ ${STAGE_PKGFILE}: ${_CONTENTS_TARGETS}
 	@${STEP_MSG} "Creating crane repository for ${PKGNAME}"
 	${RUN} ${_ULIMIT_CMD} tmpname=${.TARGET:S,${PKG_SUFX}$,.tmp${PKG_SUFX},};	\
 	if ${.CURDIR}/../../mk/scripts/create_crane_repo ${DESTDIR} ${PKGNAME} 		\
-		${PKGBASE} ${PKGVERSION} "${MAINTAINER}" ${HOMEPAGE} "${DEPENDS}"; then	\
+		${PKGBASE} ${PKGVERSION} "${MAINTAINER}" ${HOMEPAGE} "${DEPENDS}"	\
+		${PKGFILE}; then							\
 			${STEP_MSG} "Created crane repository in /tmp/${PKGNAME}";	\
 	else										\
 		exitcode=$$?; ${RM} -f "$$tmpname"; exit $$exitcode;			\
