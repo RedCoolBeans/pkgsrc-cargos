@@ -47,7 +47,10 @@ _files=$(find ${_destdir} -type f)
 
 for _f in ${_files}; do
 	case "$(head -n 1 "${_f}")" in
-		?ELF*) _wantlib ${_f} >> ${_wfile};;
+		?ELF*)
+			_wantlib ${_f} >> ${_wfile}
+			strip -s ${_f}
+			;;
 	esac
 done
 
