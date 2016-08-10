@@ -1,11 +1,12 @@
-# $NetBSD: Makefile,v 1.99 2015/06/12 18:42:25 richard Exp $
+# $NetBSD: Makefile,v 1.119 2016/07/01 17:55:23 jperkin Exp $
 
-DISTNAME=	cmake-${CMAKE_API}.3
+DISTNAME=	cmake-${CMAKE_API}.2
 PKGREVISION=	1
 CATEGORIES=	devel
-MASTER_SITES=	http://www.cmake.org/files/v${CMAKE_API}/
+MASTER_SITES=	https://cmake.org/files/v${CMAKE_API}/
 
-CMAKE_API=	3.2
+# When changing this, please update devel/cmake-fedora as well.
+CMAKE_API=	3.5
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.cmake.org/
@@ -14,7 +15,6 @@ LICENSE=	modified-bsd
 
 USE_TOOLS+=		gmake
 USE_LANGUAGES=		c c++
-USE_NCURSES=		yes
 HAS_CONFIGURE=		yes
 CONFIGURE_SCRIPT=	bootstrap
 
@@ -60,11 +60,17 @@ SUBST_SED.flags=	-e 's,-O.,,'
 pre-configure:
 	${RM} -f ${WRKSRC}/Modules/*.orig ${WRKSRC}/Modules/Platform/*.orig
 	${LN} -f ${WRKSRC}/Modules/Platform/OpenBSD.cmake ${WRKSRC}/Modules/Platform/MirBSD.cmake
+.for lang in C CXX Fortran
+	${LN} -f ${WRKSRC}/Modules/Platform/SunOS-GNU-${lang}.cmake \
+	    ${WRKSRC}/Modules/Platform/SunOS-Clang-${lang}.cmake
+.endfor
+
+INCOMPAT_CURSES=	NetBSD-[0-7].*-*
 
 BUILDLINK_API_DEPENDS.libarchive+=	libarchive>=3.0.0
 .include "../../archivers/libarchive/buildlink3.mk"
 .include "../../devel/libexecinfo/buildlink3.mk"
-.include "../../devel/ncurses/buildlink3.mk"
+.include "../../mk/curses.buildlink3.mk"
 .include "../../textproc/expat/buildlink3.mk"
 .include "../../www/curl/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

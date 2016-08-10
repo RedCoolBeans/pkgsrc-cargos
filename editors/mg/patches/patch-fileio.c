@@ -1,8 +1,4 @@
-$NetBSD: patch-ah,v 1.3 2014/07/07 18:06:58 jperkin Exp $
-
-Support SunOS.
-
---- fileio.c.orig	2011-09-05 18:26:37.000000000 +0000
+--- fileio.c.orig
 +++ fileio.c
 @@ -14,6 +14,10 @@
  #define	DEFFILEMODE	(S_IRUSR|S_IWUSR|S_IRGRP|S_IWGRP|S_IROTH|S_IWOTH)
@@ -15,7 +11,7 @@ Support SunOS.
  #include <sys/time.h>
  #include <sys/resource.h>
  #include <sys/wait.h>
-@@ -544,11 +548,7 @@ make_file_list(char *buf)
+@@ -544,11 +548,7 @@
  	 * SV files are fairly short.  For BSD, something more general would
  	 * be required.
  	 */
@@ -27,16 +23,16 @@ Support SunOS.
  		return (NULL);
  
  	/* loop over the specified directory, making up the list of files */
-@@ -570,7 +570,7 @@ make_file_list(char *buf)
+@@ -570,7 +570,7 @@
  #if defined (__CYGWIN__)	/* Cygwin lacks reclen/namlen. */
  		if (strlen(dent->d_name) < len
  		    || memcmp(cp, dent->d_name, len) != 0)
 -#elif defined (__GLIBC__)		/* Linux uses reclen instead. */
-+#elif defined (__GLIBC__) || defined(__sun) /* Linux uses reclen instead. */
++#elif defined (__GLIBC__) || defined(__sun) || defined(__linux__) /* Linux uses reclen instead. */
  		if (dent->d_reclen < len || memcmp(cp, dent->d_name, len) != 0)
  #else
  		if (dent->d_namlen < len || memcmp(cp, dent->d_name, len) != 0)
-@@ -579,7 +579,7 @@ make_file_list(char *buf)
+@@ -579,7 +579,7 @@
  
  		isdir = 0;
  
