@@ -1,4 +1,4 @@
-# $NetBSD: go-package.mk,v 1.3 2015/03/10 21:52:10 bsiegert Exp $
+# $NetBSD: go-package.mk,v 1.8 2016/01/23 12:42:57 rillig Exp $
 #
 # This file implements common logic for compiling Go programs in pkgsrc.
 # The compiled Go code is tied to a specific compiler version, and the
@@ -17,6 +17,23 @@
 #
 # Packages using this should set GO_SRCPATH to the path that could
 # be used with "go get" (usually the URL without the leading protocol).
+#
+# === Package-settable variables ===
+#
+# GO_SRCPATH
+#	Path used for go 'import' lines in source code.
+#
+# GO_DIST_BASE
+#	Path this package extracts to; only set it if it's not the same
+#	as GO_SRCPATH.
+#
+# GO_BUILD_PATTERN
+#	Argument used for 'go install'
+#	Defaults to "${GO_SRCPATH}/..." which means all files
+#	below GO_SRCPATH.
+#
+# Keywords: go
+#
 
 .include "../../lang/go/version.mk"
 
@@ -31,16 +48,26 @@ MAKE_JOBS_SAFE=		no
 INSTALLATION_DIRS+=	bin gopkg
 USE_TOOLS+=		pax
 
-GOTOOLDIR=		${PREFIX}/go/pkg/tool/${LOWER_OPSYS}_${GOARCH}
+GO_PLATFORM=		${LOWER_OPSYS}_${GOARCH}
+GOTOOLDIR=		${PREFIX}/go/pkg/tool/${GO_PLATFORM}
+
+PRINT_PLIST_AWK+=	{ gsub(/${GO_PLATFORM}/, \
+			"$${GO_PLATFORM}"); \
+			print; next; }
 
 post-extract:
-	${MKDIR} ${WRKSRC}
-	${RM} -fr ${WRKDIR}/`basename ${GO_DIST_BASE}`/.hg
-	${MV} ${WRKDIR}/`basename ${GO_DIST_BASE}`/* ${WRKSRC}
+	${RUN} ${MKDIR} ${WRKSRC}
+	${RUN} ${RM} -fr ${WRKDIR}/`basename ${GO_DIST_BASE}`/.hg
+	${RUN} ${MV} ${WRKDIR}/`basename ${GO_DIST_BASE}`/* ${WRKSRC}
 
 do-build:
-	env GOPATH=${WRKDIR}:${PREFIX}/gopkg go install -v ${GO_BUILD_PATTERN}
+	${RUN} env GOPATH=${WRKDIR}:${BUILDLINK_DIR}/gopkg go install -v ${GO_BUILD_PATTERN}
+
+.if !target(do-test)
+do-test:
+	${RUN} env GOPATH=${WRKDIR}:${BUILDLINK_DIR}/gopkg go test -v ${GO_BUILD_PATTERN}
+.endif
 
 do-install:
-	-cd ${WRKDIR} && [ -d bin ] && ${PAX} -rw bin ${DESTDIR}${PREFIX}
-	-cd ${WRKDIR} && [ -d pkg ] && ${PAX} -rw src pkg ${DESTDIR}${PREFIX}/gopkg
+	${RUN} cd ${WRKDIR}; [ ! -d bin ] || ${PAX} -rw bin ${DESTDIR}${PREFIX}
+	${RUN} cd ${WRKDIR}; [ ! -d pkg ] || ${PAX} -rw src pkg ${DESTDIR}${PREFIX}/gopkg
