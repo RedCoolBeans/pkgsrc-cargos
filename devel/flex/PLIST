@@ -13,26 +13,26 @@ share/doc/flex/ONEWS
 share/doc/flex/README
 share/doc/flex/TODO
 share/doc/flex/flex.pdf
-share/locale/ca/LC_MESSAGES/flex.mo
-share/locale/da/LC_MESSAGES/flex.mo
-share/locale/de/LC_MESSAGES/flex.mo
-share/locale/en@boldquot/LC_MESSAGES/flex.mo
-share/locale/en@quot/LC_MESSAGES/flex.mo
-share/locale/eo/LC_MESSAGES/flex.mo
-share/locale/es/LC_MESSAGES/flex.mo
-share/locale/fi/LC_MESSAGES/flex.mo
-share/locale/fr/LC_MESSAGES/flex.mo
-share/locale/ga/LC_MESSAGES/flex.mo
-share/locale/hr/LC_MESSAGES/flex.mo
-share/locale/ko/LC_MESSAGES/flex.mo
-share/locale/nl/LC_MESSAGES/flex.mo
-share/locale/pl/LC_MESSAGES/flex.mo
-share/locale/pt_BR/LC_MESSAGES/flex.mo
-share/locale/ro/LC_MESSAGES/flex.mo
-share/locale/ru/LC_MESSAGES/flex.mo
-share/locale/sr/LC_MESSAGES/flex.mo
-share/locale/sv/LC_MESSAGES/flex.mo
-share/locale/tr/LC_MESSAGES/flex.mo
-share/locale/vi/LC_MESSAGES/flex.mo
-share/locale/zh_CN/LC_MESSAGES/flex.mo
-share/locale/zh_TW/LC_MESSAGES/flex.mo
+@comment share/localeca/LC_MESSAGES/flex.mo
+@comment share/localeda/LC_MESSAGES/flex.mo
+@comment share/localede/LC_MESSAGES/flex.mo
+@comment share/localeen@boldquot/LC_MESSAGES/flex.mo
+@comment share/localeen@quot/LC_MESSAGES/flex.mo
+@comment share/localeeo/LC_MESSAGES/flex.mo
+@comment share/localees/LC_MESSAGES/flex.mo
+@comment share/localefi/LC_MESSAGES/flex.mo
+@comment share/localefr/LC_MESSAGES/flex.mo
+@comment share/localega/LC_MESSAGES/flex.mo
+@comment share/localehr/LC_MESSAGES/flex.mo
+@comment share/localeko/LC_MESSAGES/flex.mo
+@comment share/localenl/LC_MESSAGES/flex.mo
+@comment share/localepl/LC_MESSAGES/flex.mo
+@comment share/localept_BR/LC_MESSAGES/flex.mo
+@comment share/localero/LC_MESSAGES/flex.mo
+@comment share/localeru/LC_MESSAGES/flex.mo
+@comment share/localesr/LC_MESSAGES/flex.mo
+@comment share/localesv/LC_MESSAGES/flex.mo
+@comment share/localetr/LC_MESSAGES/flex.mo
+@comment share/localevi/LC_MESSAGES/flex.mo
+@comment share/localezh_CN/LC_MESSAGES/flex.mo
+@comment share/localezh_TW/LC_MESSAGES/flex.mo

@@ -59,24 +59,24 @@ man/man3/tld_get_4z.3
 man/man3/tld_get_table.3
 man/man3/tld_get_z.3
 man/man3/tld_strerror.3
-share/locale/cs/LC_MESSAGES/libidn.mo
-share/locale/da/LC_MESSAGES/libidn.mo
-share/locale/de/LC_MESSAGES/libidn.mo
-share/locale/en@boldquot/LC_MESSAGES/libidn.mo
-share/locale/en@quot/LC_MESSAGES/libidn.mo
-share/locale/eo/LC_MESSAGES/libidn.mo
-share/locale/fi/LC_MESSAGES/libidn.mo
-share/locale/fr/LC_MESSAGES/libidn.mo
-share/locale/hr/LC_MESSAGES/libidn.mo
-share/locale/hu/LC_MESSAGES/libidn.mo
-share/locale/id/LC_MESSAGES/libidn.mo
-share/locale/it/LC_MESSAGES/libidn.mo
-share/locale/ja/LC_MESSAGES/libidn.mo
-share/locale/nl/LC_MESSAGES/libidn.mo
-share/locale/pl/LC_MESSAGES/libidn.mo
-share/locale/pt_BR/LC_MESSAGES/libidn.mo
-share/locale/ro/LC_MESSAGES/libidn.mo
-share/locale/sr/LC_MESSAGES/libidn.mo
-share/locale/uk/LC_MESSAGES/libidn.mo
-share/locale/vi/LC_MESSAGES/libidn.mo
-share/locale/zh_CN/LC_MESSAGES/libidn.mo
+@comment share/locale/cs/LC_MESSAGES/libidn.mo
+@comment share/locale/da/LC_MESSAGES/libidn.mo
+@comment share/locale/de/LC_MESSAGES/libidn.mo
+@comment share/locale/en@boldquot/LC_MESSAGES/libidn.mo
+@comment share/locale/en@quot/LC_MESSAGES/libidn.mo
+@comment share/locale/eo/LC_MESSAGES/libidn.mo
+@comment share/locale/fi/LC_MESSAGES/libidn.mo
+@comment share/locale/fr/LC_MESSAGES/libidn.mo
+@comment share/locale/hr/LC_MESSAGES/libidn.mo
+@comment share/locale/hu/LC_MESSAGES/libidn.mo
+@comment share/locale/id/LC_MESSAGES/libidn.mo
+@comment share/locale/it/LC_MESSAGES/libidn.mo
+@comment share/locale/ja/LC_MESSAGES/libidn.mo
+@comment share/locale/nl/LC_MESSAGES/libidn.mo
+@comment share/locale/pl/LC_MESSAGES/libidn.mo
+@comment share/locale/pt_BR/LC_MESSAGES/libidn.mo
+@comment share/locale/ro/LC_MESSAGES/libidn.mo
+@comment share/locale/sr/LC_MESSAGES/libidn.mo
+@comment share/locale/uk/LC_MESSAGES/libidn.mo
+@comment share/locale/vi/LC_MESSAGES/libidn.mo
+@comment share/locale/zh_CN/LC_MESSAGES/libidn.mo
