@@ -145,8 +145,10 @@ Linux|GNU|GNU/*)
 	LIBC=uclibc
 	#elif defined(__dietlibc__)
 	LIBC=dietlibc
-	#else
+	#elif defined(__GLIBC__)
 	LIBC=gnu
+	#else
+	LIBC=musl
 	#endif
 	EOF
 	eval `$CC_FOR_BUILD -E $dummy.c 2>/dev/null | grep '^LIBC' | sed 's, ,,g'`

@@ -114,7 +114,7 @@ BUILDLINK_TRANSFORM+=		l:ncursesw:${BUILDLINK_LIBNAME.curses}
 .else
 .  if ${CURSES_TYPE} == "ncurses"
 USE_NCURSES=			yes
-.    include "../../devel/ncurses/buildlink3.mk"
+#.    include "../../devel/ncurses/buildlink3.mk"
 
 .  elif ${CURSES_TYPE} == "ncursesw"
 .    include "../../devel/ncursesw/buildlink3.mk"

@@ -46,7 +46,7 @@ _SYS_VARS.apache=	PKG_APACHE APACHE_PKG_PREFIX
 
 .include "bsd.fast.prefs.mk"
 
-PKG_APACHE_DEFAULT?=		apache22
+PKG_APACHE_DEFAULT?=		apache24
 BUILD_DEFS+=			PKG_APACHE_DEFAULT
 BUILD_DEFS_EFFECTS+=		PKG_APACHE APACHE_PKG_PREFIX
 
@@ -59,11 +59,11 @@ _PKG_APACHES=			apache22 apache24
 
 _APACHE_PKGBASE.apache22=	apache-2.[23]*
 _APACHE_PKG_PREFIX.apache22=	ap22
-_APACHE_PKGSRCDIR.apache22=	../../www/apache22
+_APACHE_PKGSRCDIR.apache22=	../../crane/apache22
 
 _APACHE_PKGBASE.apache24=	apache-2.[456789]*
 _APACHE_PKG_PREFIX.apache24=	ap24
-_APACHE_PKGSRCDIR.apache24=	../../www/apache24
+_APACHE_PKGSRCDIR.apache24=	../../crane/apache24
 
 #
 # Sanity checks.
