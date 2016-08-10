@@ -53,6 +53,8 @@ CONFIGURE_ARGS+=	--enable-cond-regexp
 CONFIGURE_ARGS+=	--enable-alias
 CONFIGURE_ARGS+=	--enable-brace-expansion
 CONFIGURE_ARGS+=	--enable-array-variables
+CONFIGURE_ARGS+=	--disable-nls
+CONFIGURE_ARGS+=	--without-bash-malloc
 
 .include "../../mk/bsd.prefs.mk"
 
