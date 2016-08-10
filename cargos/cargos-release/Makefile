@@ -1,6 +1,6 @@
 # $NetBSD$
 
-VERSION=		2016.07
+VERSION=		2016.08
 DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
@@ -25,15 +25,13 @@ EGDIR=			${PREFIX}/${EG}
 
 WRKSRC=			${WRKDIR}
 
-.for d in /etc/ld.so.conf.d /etc/profile.d /etc/rc.conf.d /usr/pkg/etc/gnupg
+.for d in /etc/profile.d /etc/rc.conf.d /usr/pkg/etc/gnupg
 INSTALLATION_DIRS +=	${EG}${d}
 MAKE_DIRS +=		${d}
 .endfor
 
 F600S +=		/etc/cron/crontabs/root
 
-F644S +=		/etc/ld.so.conf
-F644S +=		/etc/ld.so.conf.d/pkgsrc.conf
 F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh

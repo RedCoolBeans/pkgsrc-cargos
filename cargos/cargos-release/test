@@ -44,7 +44,6 @@ getpkglist()
 pkgtools/pkg_install
 pkgtools/bootstrap-mk-files
 devel/bmake
-lang/gcc49-libs
 "
 	# CargOS (REQ)
 	echo "
@@ -115,6 +114,6 @@ for _p in ${_pkg}; do \
 	cd ${PKGSRCDIR}/${_p} && \
 		bmake ${_bmake_env} \
 		ALLOW_VULNERABLE_PACKAGES=yes \
-		SKIP_LICENSE_CHECK=yes package-install || \
+		SKIP_LICENSE_CHECK=yes repackage || \
 		_ERR="${_p} ${_ERR}"
 done
