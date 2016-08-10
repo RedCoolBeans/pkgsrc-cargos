@@ -1,7 +1,7 @@
-# $NetBSD: Makefile,v 1.33 2012/12/16 18:13:28 wiz Exp $
+# $NetBSD: Makefile,v 1.37 2016/05/02 05:18:47 richard Exp $
 
-DISTNAME=	findutils-4.2.33
-PKGREVISION=	3
+DISTNAME=	findutils-4.6.0
+PKGREVISION=	1
 CATEGORIES=	sysutils
 MASTER_SITES=	${MASTER_SITE_GNU:=findutils/}
 
@@ -10,9 +10,10 @@ HOMEPAGE=	http://www.gnu.org/software/findutils/findutils.html
 COMMENT=	The GNU find, locate, updatedb, and xargs utilities
 LICENSE=	gnu-gpl-v3 # or later
 
-GNU_CONFIGURE=		YES
-INFO_FILES=		YES
-USE_PKGLOCALEDIR=	YES
+GNU_CONFIGURE=		yes
+INFO_FILES=		yes
+USE_PKGLOCALEDIR=	yes
+USE_TOOLS+=		gmake bison	# we patch a .y file, so needs bison
 
 LDFLAGS.IRIX+=		-lgen
 

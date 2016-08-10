@@ -544,31 +544,31 @@ ${PLIST.freetype}share/grub/themes/starfield/terminal_box_se.png
 ${PLIST.freetype}share/grub/themes/starfield/terminal_box_sw.png
 ${PLIST.freetype}share/grub/themes/starfield/terminal_box_w.png
 ${PLIST.freetype}share/grub/themes/starfield/theme.txt
-share/locale/ast/LC_MESSAGES/grub.mo
-share/locale/ca/LC_MESSAGES/grub.mo
-share/locale/da/LC_MESSAGES/grub.mo
-share/locale/de/LC_MESSAGES/grub.mo
-share/locale/de@hebrew/LC_MESSAGES/grub.mo
-share/locale/de_CH/LC_MESSAGES/grub.mo
-share/locale/en@arabic/LC_MESSAGES/grub.mo
-share/locale/en@cyrillic/LC_MESSAGES/grub.mo
-share/locale/en@greek/LC_MESSAGES/grub.mo
-share/locale/en@hebrew/LC_MESSAGES/grub.mo
-share/locale/en@piglatin/LC_MESSAGES/grub.mo
-share/locale/en@quot/LC_MESSAGES/grub.mo
-share/locale/eo/LC_MESSAGES/grub.mo
-share/locale/fi/LC_MESSAGES/grub.mo
-share/locale/fr/LC_MESSAGES/grub.mo
-share/locale/hu/LC_MESSAGES/grub.mo
-share/locale/id/LC_MESSAGES/grub.mo
-share/locale/it/LC_MESSAGES/grub.mo
-share/locale/ja/LC_MESSAGES/grub.mo
-share/locale/nl/LC_MESSAGES/grub.mo
-share/locale/pa/LC_MESSAGES/grub.mo
-share/locale/pl/LC_MESSAGES/grub.mo
-share/locale/ru/LC_MESSAGES/grub.mo
-share/locale/sv/LC_MESSAGES/grub.mo
-share/locale/uk/LC_MESSAGES/grub.mo
-share/locale/vi/LC_MESSAGES/grub.mo
-share/locale/zh_CN/LC_MESSAGES/grub.mo
-share/locale/zh_TW/LC_MESSAGES/grub.mo
+@comment share/locale/ast/LC_MESSAGES/grub.mo
+@comment share/locale/ca/LC_MESSAGES/grub.mo
+@comment share/locale/da/LC_MESSAGES/grub.mo
+@comment share/locale/de/LC_MESSAGES/grub.mo
+@comment share/locale/de@hebrew/LC_MESSAGES/grub.mo
+@comment share/locale/de_CH/LC_MESSAGES/grub.mo
+@comment share/locale/en@arabic/LC_MESSAGES/grub.mo
+@comment share/locale/en@cyrillic/LC_MESSAGES/grub.mo
+@comment share/locale/en@greek/LC_MESSAGES/grub.mo
+@comment share/locale/en@hebrew/LC_MESSAGES/grub.mo
+@comment share/locale/en@piglatin/LC_MESSAGES/grub.mo
+@comment share/locale/en@quot/LC_MESSAGES/grub.mo
+@comment share/locale/eo/LC_MESSAGES/grub.mo
+@comment share/locale/fi/LC_MESSAGES/grub.mo
+@comment share/locale/fr/LC_MESSAGES/grub.mo
+@comment share/locale/hu/LC_MESSAGES/grub.mo
+@comment share/locale/id/LC_MESSAGES/grub.mo
+@comment share/locale/it/LC_MESSAGES/grub.mo
+@comment share/locale/ja/LC_MESSAGES/grub.mo
+@comment share/locale/nl/LC_MESSAGES/grub.mo
+@comment share/locale/pa/LC_MESSAGES/grub.mo
+@comment share/locale/pl/LC_MESSAGES/grub.mo
+@comment share/locale/ru/LC_MESSAGES/grub.mo
+@comment share/locale/sv/LC_MESSAGES/grub.mo
+@comment share/locale/uk/LC_MESSAGES/grub.mo
+@comment share/locale/vi/LC_MESSAGES/grub.mo
+@comment share/locale/zh_CN/LC_MESSAGES/grub.mo
+@comment share/locale/zh_TW/LC_MESSAGES/grub.mo
