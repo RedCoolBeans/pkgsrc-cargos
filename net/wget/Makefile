@@ -18,7 +18,8 @@ USE_OLD_DES_API=	YES
 USE_PKGLOCALEDIR=	YES
 USE_TOOLS+=		msgfmt
 
-CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR}
+CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFDIR} \
+			--without-libuuid
 
 REPLACE_PERL+=		doc/texi2pod.pl
 
