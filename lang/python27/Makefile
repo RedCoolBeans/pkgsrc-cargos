@@ -125,9 +125,9 @@ PLIST.dll=	yes
 .  if ${OPSYS} == "MirBSD"
 # neither nis nor no-nis
 .  elif ${OPSYS} != "NetBSD" || exists(/usr/bin/ypcat)
-PLIST.nis=	yes
+# neither nis nor no-nis
 .  else
-PLIST.no-nis=	yes
+# neither nis nor no-nis
 .  endif
 .endif
 
