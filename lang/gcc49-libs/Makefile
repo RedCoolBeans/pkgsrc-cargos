@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.3 2015/06/22 15:38:08 jperkin Exp $
+# $NetBSD: Makefile,v 1.6 2016/01/21 11:53:46 jperkin Exp $
 
 GCC_PKGNAME=	gcc49
 .include	"../../lang/${GCC_PKGNAME}/version.mk"
@@ -8,7 +8,7 @@ PKGNAME=	${GCC_PKGNAME}-libs-${GCC49_DIST_VERSION}
 
 ## The PKGREVISION of this package needs to be at least 1 more than the
 ## PKGREVISION of the lang/gcc49 package so that with the dependence pattern
-## '{gcc49,gcc49-libs}>=4.9.*' pkg_all will choose gcc49-libs over gcc49.
+## '{gcc49,gcc49-libs}>=4.9.*' pkg_add will choose gcc49-libs over gcc49.
 PKGREVISION=	2
 
 CATEGORIES=	lang
@@ -30,11 +30,8 @@ BUILD_DEPENDS+=		${GCC_PKGNAME}-${GCC49_DIST_VERSION}{,nb[0-9]*}:../../lang/gcc4
 
 .include "../../mk/bsd.prefs.mk"
 
-FIND_PREFIX:=		GCC_PKG_PREFIX=${GCC_PKGNAME}-${GCC49_DIST_VERSION}*
-.include "../../mk/find-prefix.mk"
-
 LIBGCC_SUBPREFIX=	${GCC_PKGNAME}
-LIBGCC_PREFIX=		${GCC_PKG_PREFIX}/${LIBGCC_SUBPREFIX}
+LIBGCC_PREFIX=		${LOCALBASE}/${LIBGCC_SUBPREFIX}
 GCC_TARGET_MACHINE?=	${MACHINE_GNU_PLATFORM}
 BUILD_DEFS+=		GCC_TARGET_MACHINE
 
