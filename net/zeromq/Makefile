@@ -1,6 +1,6 @@
 # $NetBSD: Makefile,v 1.21 2015/08/28 12:52:01 he Exp $
 
-DISTNAME=	zeromq-4.1.3
+DISTNAME=	zeromq-4.1.4
 CATEGORIES=	net devel
 MASTER_SITES=	http://download.zeromq.org/
 
@@ -21,12 +21,13 @@ TEST_TARGET=	check
 .include "../../mk/compiler.mk"
 
 .if !empty(CC_VERSION:Mgcc-*)
-CXXFLAGS+=	-std=gnu++0x
+#CXXFLAGS+=	-std=gnu++0x
 .endif
 
 .if !empty(CC_VERSION:Mclang-*)
-CXXFLAGS+=	-std=gnu++11
+#CXXFLAGS+=	-std=gnu++11
 .endif
+CXXFLAGS+=	-std=gnu++11
 
 .include "../../security/libsodium/buildlink3.mk"
 CONFIGURE_ARGS+=	--with-libsodium=${BUILDLINK_PREFIX.libsodium}
