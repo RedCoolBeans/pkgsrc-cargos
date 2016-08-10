@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.6 2015/06/10 21:45:40 ryoon Exp $
+# $NetBSD: Makefile,v 1.11 2016/07/09 06:38:25 wiz Exp $
 
 GCC_PKGNAME=	gcc49
 .include	"version.mk"
@@ -9,7 +9,7 @@ PKGNAME=	${GCC_PKGNAME}-${GCC49_DIST_VERSION}
 ## When bumping the PKGREVISION of this package the PKGREVISION of
 ## lang/gcc49-libs needs to be bump to be at least 1 more than the
 ## PKGREVISION of this package!
-PKGREVISION=	1
+PKGREVISION=	2
 
 CATEGORIES=	lang
 MASTER_SITES=	${MASTER_SITE_GNU:=gcc/gcc-${GCC49_DIST_VERSION}/}
@@ -64,6 +64,9 @@ BOOT_LDFLAGS=		-static-libstdc++ -static-libgcc ${LDFLAGS_FOR_TARGET}
 # Needed on Darwin when LDFLAGS point to a SDK
 BOOT_LDFLAGS+=		${LDFLAGS:M-Wl,-syslibroot*}
 
+# Ignore missing rpaths in "fake" library.
+CHECK_SHLIBS_SKIP+=	${GCC_PKGNAME}/lib*/libgcj_bc.so*
+
 ## For target librarys and libjava programs.
 CONFIGURE_ENV+=		LDFLAGS_FOR_TARGET=${LDFLAGS_FOR_TARGET:Q}
 
@@ -74,34 +77,45 @@ CONFIGURE_ARGS+=	--with-local-prefix=${GCC_PREFIX:Q}
 CONFIGURE_ARGS+=	--enable-libssp
 CONFIGURE_ARGS+=	--enable-threads=posix
 CONFIGURE_ARGS+=	--with-boot-ldflags=${BOOT_LDFLAGS:Q}
-.if ${OPSYS} == "NetBSD"
-CONFIGURE_ARGS+=	--with-gnu-ld --with-ld=/usr/bin/ld
-CONFIGURE_ARGS+=	--with-gnu-as --with-as=/usr/bin/as
-MAKE_ENV+=		ac_cv_func_clock_gettime=yes
-MAKE_ENV+=		ac_cv_func_gethostbyname_r=no
-.endif
-.if ${OPSYS} == "DragonFly"
+
+CONFIGURE_ARGS.NetBSD+=	--with-gnu-ld --with-ld=/usr/bin/ld
+CONFIGURE_ARGS.NetBSD+=	--with-gnu-as --with-as=/usr/bin/as
+MAKE_ENV.NetBSD+=	ac_cv_func_clock_gettime=yes
+MAKE_ENV.NetBSD+=	ac_cv_func_gethostbyname_r=no
+
+PATCHFILES=            	900-musl-support.patch \
+			202-posix_memalign.patch
+PATCH_SITES=           	http://nerd.hu/ 
+PATCH_DIST_STRIP=       -p1
+
 CONFIGURE_ARGS+=	--disable-bootstrap
-.endif
-.if ${OPSYS} == "Darwin"
+
 # See ${WRKSRC}/libgcc/config/t-slibgcc-darwin: It uses strip(1) to
 # create a stub library, not just to remove symbols, so we must not
 # let strip(1) be a no-op regardless of ${INSTALL_UNSTRIPPED} or the
 # build fails for missing files.
-CONFIGURE_ARGS+=	STRIP_FOR_TARGET=${TOOLS_PLATFORM.strip}
-.endif
+CONFIGURE_ARGS.Darwin+=	STRIP_FOR_TARGET=${TOOLS_PLATFORM.strip}
 
 .if !empty(MACHINE_PLATFORM:MDarwin-[0-8].*-*)
 CONFIGURE_ARGS+=       --with-dwarf2
 CONFIGURE_ARGS+=       --disable-libitm
 .endif
 
-.if !empty(MACHINE_PLATFORM:MDarwin-[0-8].*-powerpc)
-CONFIGURE_ARGS+=       --disable-multilib
-.endif
+#.if !empty(MACHINE_PLATFORM:MDarwin-[0-8].*-powerpc)
+CONFIGURE_ARGS+=       --disable-multilib --disable-libsanitizer --disable-libgomp --disable-libssp
+#.endif
 
 .if !empty(MACHINE_PLATFORM:MNetBSD-*-i386) || !empty(MACHINE_PLATFORM:MLinux-*-i386)
 CONFIGURE_ARGS+=	--with-arch=i486 --with-tune=i486
+.endif
+
+# Disable fixincludes on SmartOS, header changes result in broken includes
+# being generated, see https://github.com/joyent/pkgsrc/issues/270
+.if ${OS_VARIANT} == "SmartOS"
+SUBST_CLASSES+=		fixinc
+SUBST_STAGE.fixinc=	pre-configure
+SUBST_FILES.fixinc=	gcc/Makefile.in
+SUBST_SED.fixinc=	-e "s,\./fixinc.sh,-c true,"
 .endif
 
 .include "options.mk"
