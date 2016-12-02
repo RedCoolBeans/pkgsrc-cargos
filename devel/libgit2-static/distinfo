@@ -1,7 +1,7 @@
 $NetBSD$
 
-SHA1 (libgit2-0.24.0.tar.gz) = 1ca559573b5900a544a355a6ac0336517eb843f5
-RMD160 (libgit2-0.24.0.tar.gz) = 3e6f987abc1859b4da2129b2d83dcd8f616c06ed
-SHA512 (libgit2-0.24.0.tar.gz) = f41e8f9d4b03b392fb7f3a8a7e2ee806760d4c43fdc4270ef59d42c9d57f1f93681216ff4cfdfc6512b212bf7a37a4fe0fe9c44a04742fb3e2aef54c016136ba
-Size (libgit2-0.24.0.tar.gz) = 4169652 bytes
+SHA1 (libgit2-0.24.3.tar.gz) = 08bda95828f9e0aa470f43b902a6b166063cf6fe
+RMD160 (libgit2-0.24.3.tar.gz) = 2388c157e54c1a7bf9bea8a4a1bc6c61e52c7067
+SHA512 (libgit2-0.24.3.tar.gz) = cb7b482664a5527e2d7c8f7c98755fd578f5331bc39fa2a5c8b841508e075b06b936f2c4a55cb4d10fe5d1677b596387bb16d68c220f1f23fce0a894b092f8c4
+Size (libgit2-0.24.3.tar.gz) = 4177371 bytes
 SHA1 (patch-libgit2_pc_in) = fafdc900d7e71e46238cc718a40374f582e935a2
