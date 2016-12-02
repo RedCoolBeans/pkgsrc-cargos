@@ -2,7 +2,8 @@
 
 ONLY_FOR_PLATFORM=	Linux-*-x86_64
 
-V=			1.11.1
+V=			1.12.1
+PKGREVISION=		1
 DISTNAME=		docker-${V}
 PKGNAME=		docker.io-${V}
 CATEGORIES=		sysutils
@@ -17,12 +18,12 @@ LICENSE=		apache-2.0
 INSTALLATION_DIRS=	bin
 NO_BUILD=		yes
 PKG_GROUPS=		docker
-RCD_SCRIPTS=		docker
+RCD_SCRIPTS=		dockerd
 
 DEPENDS+=		mozilla-rootcerts-[0-9]*:../../security/mozilla-rootcerts
 
-DOCKER_BINS =		docker docker-containerd docker-containerd-ctr \
-			docker-containerd-shim docker-runc
+DOCKER_BINS =		docker dockerd docker-containerd docker-containerd-ctr \
+			docker-containerd-shim docker-runc docker-proxy
 
 # unconfuse pkgsrc otherwise the rcd script isn't installed
 post-extract:
