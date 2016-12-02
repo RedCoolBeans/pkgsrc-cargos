@@ -1,0 +1,5 @@
+# @PKGNAME@
+# @EGDIR@/etc/rc.conf.d/dockerd
+
+dockerd=${dockerd:=YES}
+dockerd_flags="${dockerd_flags:=-G docker --icc=false --selinux-enabled -s overlay}"

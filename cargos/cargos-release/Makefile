@@ -1,6 +1,6 @@
 # $NetBSD$
 
-VERSION=		2016.08
+VERSION=		2016.09
 DISTNAME=		cargos-release-${VERSION}
 CATEGORIES=		sysutils
 MASTER_SITES=		# empty
@@ -36,7 +36,7 @@ F644S +=		/etc/os-release
 F644S +=		/etc/profile
 F644S +=		/etc/profile.d/pkg.sh
 F644S +=		/etc/profile.d/pkgsrc.sh
-F644S +=		/etc/rc.conf.d/docker
+F644S +=		/etc/rc.conf.d/dockerd
 F644S +=		/etc/rc.conf.d/ntpd
 F644S +=		/etc/rc.conf.d/sshd
 
